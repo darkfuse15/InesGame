@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1C2A2BC0-79AF-D292-9EF3-7E11A21E32A4}</ProjectGuid>
+    <ProjectGuid>{91D71D09-86E9-B818-0B5A-0B1EFC723771}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -73,8 +73,8 @@
      <Compile Include="Assets\DeltaDNA\Platforms\Android\Utils.cs" />
      <Compile Include="Assets\DeltaDNA\ProductBuilder.cs" />
      <Compile Include="Assets\DeltaDNA\TransactionBuilder.cs" />
-     <Compile Include="Assets\Pedro\toweraim.cs" />
      <Compile Include="Assets\PlayerStateAnim.cs" />
+     <Compile Include="Assets\Resources\toweraim.cs" />
      <Compile Include="Assets\Scripts\Controls\CameraControl.cs" />
      <Compile Include="Assets\Scripts\Controls\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\Controls\EnemyLayerControl.cs" />
@@ -418,88 +418,88 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTBluetooth">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTBluetooth.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTBluetooth.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTBluetooth_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTBluetooth_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTBluetooth_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCore">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCore.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCore.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCore_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCore_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCore_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCoreExtras">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCoreExtras.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCoreExtras.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCoreExtras_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCoreExtras_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCoreExtras_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCoreImage">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCoreImage.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCoreImage.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTCoreImage_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTCoreImage_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTCoreImage_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTGameController">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTGameController.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTGameController.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTGameController_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTGameController_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTGameController_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTGameKit7">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTGameKit7.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTGameKit7.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTGameKit7_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTGameKit7_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTGameKit7_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTIAP">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTIAP.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTIAP.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTIAP_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTIAP_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTIAP_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMaps">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMaps.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMaps.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMaps_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMaps_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMaps_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMediaPlayer">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMediaPlayer.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMediaPlayer.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMediaPlayer_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMediaPlayer_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMediaPlayer_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMultipeer">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMultipeer.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMultipeer.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTMultipeer_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTMultipeer_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTMultipeer_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTPersonal">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTPersonal.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTPersonal.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTPersonal_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTPersonal_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTPersonal_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSocial">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSocial.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSocial.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSocial_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSocial_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSocial_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSpeech">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSpeech.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSpeech.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSpeech_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSpeech_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSpeech_HL.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSpriteKit">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSpriteKit.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSpriteKit.dll</HintPath>
  </Reference>
  <Reference Include="U3DXTSpriteKit_HL">
- <HintPath>/Users/aprendizdeveloper/Desktop/scrap/InternetSegura0710 - ios/Assets/U3DXT/Plugins/U3DXTSpriteKit_HL.dll</HintPath>
+ <HintPath>/Users/aprendizdeveloper/Desktop/ines/InesGame/Assets/U3DXT/Plugins/U3DXTSpriteKit_HL.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

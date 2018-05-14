@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class toweraim : MonoBehaviour {
 	 
+	[SerializeField]
+	protected Weapon1Control wapon1;
+
+	[SerializeField]
+	protected GameObject wapon;
 
 	//
 	//protected float speed = 5f;
 
-
   //[SerializeField]
   //protected Transform rotTower;
 	[SerializeField]
-	protected float range = 4f;
+	protected float range = 1.5f;
 
+
+	void Start(){
+		wapon1 = wapon.gameObject.GetComponent<Weapon1Control>();	
+	}
 	void Update (){ 
 
 	
@@ -22,11 +30,11 @@ public class toweraim : MonoBehaviour {
 		{
 			float  distanceToTarget = Vector3.Distance(transform.position,enemy.transform.position);
 			if (distanceToTarget < range) {
-
 				Vector3 targetDir = enemy.transform.position - transform.position;
 				float angle = Mathf.Atan2(targetDir.y ,targetDir.x) * Mathf.Rad2Deg ;
 				Quaternion q = Quaternion.AngleAxis( angle, Vector3.forward);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation , q , 180f);
+				wapon1.Shoot();
 			}	
 		}
 	}

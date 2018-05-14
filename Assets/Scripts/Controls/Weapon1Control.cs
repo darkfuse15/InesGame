@@ -2,6 +2,13 @@
 using System.Collections;
 
 public class Weapon1Control : MonoBehaviour {
+
+	[SerializeField]
+	protected GameObject tower;
+
+	protected toweraim twrAim;
+
+
 	WeaponStatus status;
 	float speed =0.5f;
 	Vector3 _direction;
@@ -12,8 +19,8 @@ public class Weapon1Control : MonoBehaviour {
 
 	bool cango=false;
 
-	public void Init(WeaponStatus status, Vector3 startpos){
-		this.status = new WeaponStatus(status.target, 
+	public void Init(WeaponStatus status, Vector3 startpos){ 
+		this.status = new WeaponStatus(status.target,  
 		                               status.damage,
 		                               status.attack_range,
 		                               status.attack_duration);
@@ -32,38 +39,36 @@ public class Weapon1Control : MonoBehaviour {
 	
 	float journeyLength;
 	Vector3 startpos;
- 
-	void Start () {
- 
-	}
+ 	
 	float weapon_timer=0;
- 
-	void Update () {
-		if(status.target !=null){
-		if(cango){
-			if(weapon_timer<=1) {
-				weapon_timer+=Time.deltaTime;
-			 	this.transform.position =  Vector3.Lerp(startpos, this.status.target.transform.position, weapon_timer);
-				Rotate();
+	
+	public void Shoot () {
+		
+		if((status.target !=null)){
+			if(cango){
+				if(weapon_timer<=1) {
+					weapon_timer+=Time.deltaTime;
+			 		this.transform.position =  Vector3.Lerp(startpos, this.status.target.transform.position, weapon_timer);
+					Rotate();
 				
-			}else {
-				cango = false;
-				Debug.Log ("Give Damage "+this.status.damage);
+				}else {
+					cango = false;
+					Debug.Log ("Give Damage "+this.status.damage);
 
-				if(weapon_from_enemy){
-					this.status.target.GetComponent<TowerControl>().TakeDamage(this.status.damage, transform.parent.GetComponent<EnemyControl>().status.type);
-				}else{
-					this.status.target.GetComponent<EnemyControl>().TakeDamage(this.status.damage, 1);
+					if(weapon_from_enemy){
+						this.status.target.GetComponent<TowerControl>().TakeDamage(this.status.damage, transform.parent.GetComponent<EnemyControl>().status.type);
+					}else{
+						this.status.target.GetComponent<EnemyControl>().TakeDamage(this.status.damage, 1);
+					}
+					this.transform.parent=null;
+					Destroy(this.gameObject);
 				}
-				this.transform.parent=null;
-				Destroy(this.gameObject);
+			}
+			}else{
+				this.transform.parent = null;
+				Destroy (this.gameObject);
 			}
 		}
-		}else{
-			this.transform.parent = null;
-			Destroy (this.gameObject);
-		}
-	}
 
 
 
