@@ -19,7 +19,7 @@ public class TowerButtonsPositions : MonoBehaviour {
 
 	void Reposition(){
 		Cameraorto=Camera.main.orthographicSize;
-		UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 		if(tower_spot != null){
 			Vector2 spot_pos = RectTransformUtility.WorldToScreenPoint(Camera.main, tower_spot.transform.position);
 

@@ -453,13 +453,13 @@ public class QuizControl : MonoBehaviour {
 	private void StartIntroAnim(){
 		Debug.Log ("Before intro anim start");
 
-		intro_anim_tr = transform.parent.parent.FindChild("InGame").FindChild("IntroAnim");
+		intro_anim_tr = transform.parent.parent.Find("InGame").Find("IntroAnim");
 		intro_anim_tr.gameObject.SetActive(true);
-		GameObject IntroAnim=transform.parent.parent.FindChild("InGame").gameObject.transform.FindChild("IntroAnim").gameObject;
+		GameObject IntroAnim=transform.parent.parent.Find("InGame").gameObject.transform.Find("IntroAnim").gameObject;
 		//player=
-		GameObject.Find ("InGame").transform.FindChild("IntroAnim").transform.FindChild("Screen01").gameObject.transform.FindChild("Player").gameObject.GetComponent<Animator>().SetInteger("player",PlayerData.picked_playerid);
+		GameObject.Find ("InGame").transform.Find("IntroAnim").transform.Find("Screen01").gameObject.transform.Find("Player").gameObject.GetComponent<Animator>().SetInteger("player",PlayerData.picked_playerid);
 		//player.SetInteger("player",1);
-		GameObject.Find ("InGame").transform.FindChild("IntroAnim").transform.FindChild("Screen01").gameObject.transform.FindChild("frame02").transform.FindChild("Player").gameObject.GetComponent<Animator>().SetInteger("player",PlayerData.picked_playerid);
+		GameObject.Find ("InGame").transform.Find("IntroAnim").transform.Find("Screen01").gameObject.transform.Find("frame02").transform.Find("Player").gameObject.GetComponent<Animator>().SetInteger("player",PlayerData.picked_playerid);
 
 		//GameObject.Find ("InGame").transform.FindChild("IntroAnim").transform.FindChild("Screen02").gameObject.transform.FindChild("Player").gameObject.GetComponent<Animator>().SetInteger("player",1);
 

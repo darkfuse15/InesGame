@@ -23,9 +23,9 @@ public class PlayerSelectMenu : MonoBehaviour {
 
 
 
-		InputNameBG.transform.FindChild("InputName").GetComponent<InputField>().onValueChange.RemoveAllListeners();
-		InputNameBG.transform.FindChild("InputName").GetComponent<InputField>().onValueChange.AddListener((value)=>{
-			PlayerData.playername=this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<InputField>().text;
+		InputNameBG.transform.Find("InputName").GetComponent<InputField>().onValueChange.RemoveAllListeners();
+		InputNameBG.transform.Find("InputName").GetComponent<InputField>().onValueChange.AddListener((value)=>{
+			PlayerData.playername=this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<InputField>().text;
 		});
 
 	}
@@ -39,10 +39,10 @@ public class PlayerSelectMenu : MonoBehaviour {
 	public void SavedUser(){
 		Debug.Log("plname "+PlayerData.playername);
 		if(PlayerData.playername!=""){ 
-			InputNameBG.transform.FindChild("InputName").GetComponent<InputField>().text=PlayerData.playername;
+			InputNameBG.transform.Find("InputName").GetComponent<InputField>().text=PlayerData.playername;
 		}else{
 			Debug.Log("HERE");
-			InputNameBG.transform.FindChild("InputName").GetComponent<InputField>().text="Nick";
+			InputNameBG.transform.Find("InputName").GetComponent<InputField>().text="Nick";
 		}
 
 
@@ -52,17 +52,17 @@ public class PlayerSelectMenu : MonoBehaviour {
 
 	public void InputFieldSelected(){
 		Debug.Log ("Selected");
-		if(this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<Text>().text=="Nick")
+		if(this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<Text>().text=="Nick")
 		{
-			this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<InputField>().text="";
-			this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("Insertnamehere").GetComponent<Text>().text="";
+			this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<InputField>().text="";
+			this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("Insertnamehere").GetComponent<Text>().text="";
 		}
 	}
 
 	public void InputFieldUnselected(){
 		Debug.Log ("Unselected");
-		if(this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<InputField>().text=="")
-			this.transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<Text>().text="Nick";
+		if(this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<InputField>().text=="")
+			this.transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<Text>().text="Nick";
 	}
 
 	//Joao2409
@@ -98,41 +98,41 @@ public class PlayerSelectMenu : MonoBehaviour {
 		{
 			GlobalData.current_difficulty = difficulty;
 
-			GameObject.Find ("MainMenu").transform.FindChild("LevelsMenu").gameObject.transform.GetComponent<LevelsMenu>().Update_LockedLevels(difficulty);
+			GameObject.Find ("MainMenu").transform.Find("LevelsMenu").gameObject.transform.GetComponent<LevelsMenu>().Update_LockedLevels(difficulty);
 
 		if(difficulty==0){
-			GameObject.Find ("MainMenu").transform.FindChild("LevelsMenu").FindChild("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_easy_bg");
+			GameObject.Find ("MainMenu").transform.Find("LevelsMenu").Find("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_easy_bg");
 		
 		}else if(difficulty == 1){
-			GameObject.Find ("MainMenu").transform.FindChild("LevelsMenu").FindChild("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_normal_bg");
+			GameObject.Find ("MainMenu").transform.Find("LevelsMenu").Find("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_normal_bg");
 		}else if(difficulty == 2){
-			GameObject.Find ("MainMenu").transform.FindChild("LevelsMenu").FindChild("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_hard_bg");
+			GameObject.Find ("MainMenu").transform.Find("LevelsMenu").Find("BG").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/level_select_hard_bg");
 		}
 		
 
 
 
 
-		GameObject.Find ("MainMenu").transform.FindChild("LevelsMenu").gameObject.SetActive(true);
+		GameObject.Find ("MainMenu").transform.Find("LevelsMenu").gameObject.SetActive(true);
 		this.gameObject.SetActive(false);
 		}
 	}
 
 	public void ShowLevelMenu_Easy(){
 		Debug.Log ("EasyMenu");
-		GameObject.Find ("MainMenu").transform.FindChild("EasyMenu").gameObject.SetActive(true);
+		GameObject.Find ("MainMenu").transform.Find("EasyMenu").gameObject.SetActive(true);
 		this.gameObject.SetActive(false);
 	}
 
 	public void ShowLevelMenu_Normal(){
 		Debug.Log ("NormalMenu");
-		GameObject.Find ("MainMenu").transform.FindChild("NormalMenu").gameObject.SetActive(true);
+		GameObject.Find ("MainMenu").transform.Find("NormalMenu").gameObject.SetActive(true);
 		this.gameObject.SetActive(false);
 	}
 
 	public void ShowLevelMenu_Hard(){
 		Debug.Log ("HardMenu");
-		GameObject.Find ("MainMenu").transform.FindChild("HardMenu").gameObject.SetActive(true);
+		GameObject.Find ("MainMenu").transform.Find("HardMenu").gameObject.SetActive(true);
 		this.gameObject.SetActive(false);
 	}
 

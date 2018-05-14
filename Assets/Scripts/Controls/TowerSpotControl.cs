@@ -5,11 +5,11 @@ public class TowerSpotControl : MonoBehaviour {
 	GameObject TowerSpotsGUIs,TowerButtons, TowerInfo,CheckFirstTower,CheckUpgdTower;
 
 	void Start () {
-		TowerSpotsGUIs = GameObject.Find ("InGame").gameObject.transform.FindChild("TD").FindChild("TowerSpotsGUIs").gameObject;
-		TowerButtons = TowerSpotsGUIs.transform.FindChild("tbtns").gameObject;
-		TowerInfo = TowerSpotsGUIs.transform.FindChild("pnl_info").gameObject;
-		CheckFirstTower=TowerButtons.transform.FindChild("btn_Tower1").gameObject;
-		CheckUpgdTower=TowerButtons.transform.FindChild("btn_Upgrade").gameObject;
+		TowerSpotsGUIs = GameObject.Find ("InGame").gameObject.transform.Find("TD").Find("TowerSpotsGUIs").gameObject;
+		TowerButtons = TowerSpotsGUIs.transform.Find("tbtns").gameObject;
+		TowerInfo = TowerSpotsGUIs.transform.Find("pnl_info").gameObject;
+		CheckFirstTower=TowerButtons.transform.Find("btn_Tower1").gameObject;
+		CheckUpgdTower=TowerButtons.transform.Find("btn_Upgrade").gameObject;
 	}
 	
 	void Update () {
@@ -21,7 +21,7 @@ public class TowerSpotControl : MonoBehaviour {
 		//Check if there isn't any GUI's open for build towers or upgrade/repair/remove towers
 
 
-			GameObject UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+			GameObject UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 
 			bool samespot=false;
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Tower");
@@ -79,17 +79,17 @@ public class TowerSpotControl : MonoBehaviour {
 						   
 								Debug.Log ("curtutorial "+GlobalData.current_tutorial);
 							
-							TowerButtons.transform.FindChild("btn_Repair").gameObject.SetActive(false);
-							TowerButtons.transform.FindChild("btn_Upgrade").gameObject.SetActive(false);
-							TowerButtons.transform.FindChild("btn_Delete").gameObject.SetActive(false);
+							TowerButtons.transform.Find("btn_Repair").gameObject.SetActive(false);
+							TowerButtons.transform.Find("btn_Upgrade").gameObject.SetActive(false);
+							TowerButtons.transform.Find("btn_Delete").gameObject.SetActive(false);
 							for(int i=1;i<=5;i++) {
 
 								bool can_build = (PlayerData.current_energy > GlobalData.TOWER_BUILD_COSTS[i] );
-								TowerButtons.transform.FindChild("btn_Tower"+i).gameObject.SetActive(true);
+								TowerButtons.transform.Find("btn_Tower"+i).gameObject.SetActive(true);
 								if(can_build){
-									TowerButtons.transform.FindChild("btn_Tower"+i).GetComponent<Image>().color = Color.white;
+									TowerButtons.transform.Find("btn_Tower"+i).GetComponent<Image>().color = Color.white;
 								}else{
-									TowerButtons.transform.FindChild("btn_Tower"+i).GetComponent<Image>().color = Color.grey;
+									TowerButtons.transform.Find("btn_Tower"+i).GetComponent<Image>().color = Color.grey;
 								}
 							} 
 			
@@ -115,39 +115,39 @@ public class TowerSpotControl : MonoBehaviour {
 					//TowerButtons.GetComponent<TowerButtonsPositions>().SetStartPos(this.gameObject);
 					bool can_repair = thealth<GlobalData.TOWERSUPGRADEVALUES[ttype][tupgrade_level].health &&
 										PlayerData.current_energy>GlobalData.TOWER_Repair_COSTS[ttype][tupgrade_level];
-					TowerButtons.transform.FindChild("btn_Repair").gameObject.SetActive(true);
+					TowerButtons.transform.Find("btn_Repair").gameObject.SetActive(true);
 
 					if(can_repair){
-						TowerButtons.transform.FindChild("btn_Repair").GetComponent<Image>().color = Color.white;
+						TowerButtons.transform.Find("btn_Repair").GetComponent<Image>().color = Color.white;
 					}else{
-						TowerButtons.transform.FindChild("btn_Repair").GetComponent<Image>().color = Color.grey;
+						TowerButtons.transform.Find("btn_Repair").GetComponent<Image>().color = Color.grey;
 						
 					}
 
 
 						
 
-						TowerButtons.transform.FindChild("btn_Upgrade").gameObject.SetActive(true);
+						TowerButtons.transform.Find("btn_Upgrade").gameObject.SetActive(true);
 					if(tupgrade_level<3){
 						bool can_upgrade = PlayerData.current_energy>GlobalData.TOWER_UPGRADE_COSTS[ttype][tupgrade_level];
 
 						if(can_upgrade){
-							TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.white;
+							TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.white;
 						}else{
-							TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.grey;
+							TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.grey;
 						}
 
 					}else{
-						TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.grey;
+						TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.grey;
 					}
-					TowerButtons.transform.FindChild("btn_Delete").gameObject.SetActive(true);
+					TowerButtons.transform.Find("btn_Delete").gameObject.SetActive(true);
 
 
 
 
 					for(int i=1;i<=5;i++)
 					{
-						TowerButtons.transform.FindChild("btn_Tower"+i).gameObject.SetActive(false);
+						TowerButtons.transform.Find("btn_Tower"+i).gameObject.SetActive(false);
 					}
 				}
 			}
@@ -188,16 +188,16 @@ public class TowerSpotControl : MonoBehaviour {
 			//	Vector2 TowerSpotPosition= RectTransformUtility.WorldToScreenPoint(Camera.main, this.transform.position);
 			//	Debug.Log (TowerSpotPosition);
 			//	TowerButtons.GetComponent<RectTransform>().position= new Vector3 (TowerSpotPosition.x,TowerSpotPosition.y,0);
-			TowerButtons.transform.FindChild("btn_Repair").gameObject.SetActive(false);
-			TowerButtons.transform.FindChild("btn_Upgrade").gameObject.SetActive(false);
-			TowerButtons.transform.FindChild("btn_Delete").gameObject.SetActive(false);
+			TowerButtons.transform.Find("btn_Repair").gameObject.SetActive(false);
+			TowerButtons.transform.Find("btn_Upgrade").gameObject.SetActive(false);
+			TowerButtons.transform.Find("btn_Delete").gameObject.SetActive(false);
 			for(int i=1;i<=5;i++) {
 				bool can_build = (PlayerData.current_energy > GlobalData.TOWER_BUILD_COSTS[i] );
-				TowerButtons.transform.FindChild("btn_Tower"+i).gameObject.SetActive(true);
+				TowerButtons.transform.Find("btn_Tower"+i).gameObject.SetActive(true);
 				if(can_build){
-					TowerButtons.transform.FindChild("btn_Tower"+i).GetComponent<Image>().color = Color.white;
+					TowerButtons.transform.Find("btn_Tower"+i).GetComponent<Image>().color = Color.white;
 				}else{
-					TowerButtons.transform.FindChild("btn_Tower"+i).GetComponent<Image>().color = Color.grey;
+					TowerButtons.transform.Find("btn_Tower"+i).GetComponent<Image>().color = Color.grey;
 				}
 			} 
 		} else {
@@ -213,39 +213,39 @@ public class TowerSpotControl : MonoBehaviour {
 			//TowerButtons.GetComponent<TowerButtonsPositions>().SetStartPos(this.gameObject);
 			bool can_repair = thealth<GlobalData.TOWERSUPGRADEVALUES[ttype][tupgrade_level].health &&
 				PlayerData.current_energy>GlobalData.TOWER_Repair_COSTS[ttype][tupgrade_level];
-			TowerButtons.transform.FindChild("btn_Repair").gameObject.SetActive(true);
+			TowerButtons.transform.Find("btn_Repair").gameObject.SetActive(true);
 			
 			if(can_repair){
-				TowerButtons.transform.FindChild("btn_Repair").GetComponent<Image>().color = Color.white;
+				TowerButtons.transform.Find("btn_Repair").GetComponent<Image>().color = Color.white;
 			}else{
-				TowerButtons.transform.FindChild("btn_Repair").GetComponent<Image>().color = Color.grey;
+				TowerButtons.transform.Find("btn_Repair").GetComponent<Image>().color = Color.grey;
 				
 			}
 			
 			
 			
 			
-			TowerButtons.transform.FindChild("btn_Upgrade").gameObject.SetActive(true);
+			TowerButtons.transform.Find("btn_Upgrade").gameObject.SetActive(true);
 			if(tupgrade_level<3){
 				bool can_upgrade = PlayerData.current_energy>GlobalData.TOWER_UPGRADE_COSTS[ttype][tupgrade_level];
 				
 				if(can_upgrade){
-					TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.white;
+					TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.white;
 				}else{
-					TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.grey;
+					TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.grey;
 				}
 				
 			}else{
-				TowerButtons.transform.FindChild("btn_Upgrade").GetComponent<Image>().color = Color.grey;
+				TowerButtons.transform.Find("btn_Upgrade").GetComponent<Image>().color = Color.grey;
 			}
-			TowerButtons.transform.FindChild("btn_Delete").gameObject.SetActive(true);
+			TowerButtons.transform.Find("btn_Delete").gameObject.SetActive(true);
 			
 			
 			
 			
 			for(int i=1;i<=5;i++)
 			{
-				TowerButtons.transform.FindChild("btn_Tower"+i).gameObject.SetActive(false);
+				TowerButtons.transform.Find("btn_Tower"+i).gameObject.SetActive(false);
 			}
 		}
 		TowerSpotsGUIs.SetActive(true);

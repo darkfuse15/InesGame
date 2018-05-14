@@ -12,7 +12,7 @@ public class LeaderBoard : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		LeaderboardContentObj=this.transform.FindChild("LeaderBoardMask").gameObject.transform.FindChild("LeaderBoardContent").gameObject;
+		LeaderboardContentObj=this.transform.Find("LeaderBoardMask").gameObject.transform.Find("LeaderBoardContent").gameObject;
 	}
 	
 	// Update is called once per frame
@@ -50,7 +50,7 @@ public class LeaderBoard : MonoBehaviour {
 
 
 		GameObject Classificationobj;
-		LeaderboardContentObj=this.transform.FindChild("LeaderBoardMask").gameObject.transform.FindChild("LeaderBoardContent").gameObject;
+		LeaderboardContentObj=this.transform.Find("LeaderBoardMask").gameObject.transform.Find("LeaderBoardContent").gameObject;
 
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("LeaderboardElement");
 		foreach (GameObject target in gameObjects) {
@@ -70,12 +70,12 @@ public class LeaderBoard : MonoBehaviour {
 			Classificationobj = Instantiate(Resources.Load("Prefabs/Leaderboard/Classificationprefab")) as GameObject;
 			Classificationobj.name="Classification"+i;
 			Classificationobj.transform.parent=LeaderboardContentObj.transform;
-			ClassificationText=Classificationobj.transform.FindChild("Classificationnumber").GetComponent<Text>();
+			ClassificationText=Classificationobj.transform.Find("Classificationnumber").GetComponent<Text>();
 			ClassificationText.text=i.ToString();
-			ClassificationText=Classificationobj.transform.FindChild("Name").GetComponent<Text>();
+			ClassificationText=Classificationobj.transform.Find("Name").GetComponent<Text>();
 			//Change to Global Data Var
 			ClassificationText.text=GlobalData.leaderboard_name[indexforlist];
-			ClassificationText=Classificationobj.transform.FindChild("Points").GetComponent<Text>();
+			ClassificationText=Classificationobj.transform.Find("Points").GetComponent<Text>();
 			//Change to Global Data Var
 			ClassificationText.text=GlobalData.leaderboard_score[indexforlist]+" pontos";
 			

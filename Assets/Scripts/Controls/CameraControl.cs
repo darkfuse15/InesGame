@@ -43,7 +43,7 @@ public class CameraControl : MonoBehaviour {
 	}
 	public void Init(int mapsize_x, int mapsize_y, Vector3 start_pos){
 		GlobalData.introlevelanim=true;
-		UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 		mapsize_x=GlobalData.dificulty_xmap_size;
 		savedmapsize_x=mapsize_x;
 		float ar = this.GetComponent<Camera>().aspect/1.5f;
@@ -216,7 +216,7 @@ public class CameraControl : MonoBehaviour {
 			{
 
 
-				if(GameObject.Find("TD_Level(Clone)").gameObject.transform.FindChild("Enemies").FindChild("0")!=null){
+				if(GameObject.Find("TD_Level(Clone)").gameObject.transform.Find("Enemies").Find("0")!=null){
 					if(!started_followingDarkServer)
 					{
 						savedOrto=Camera.main.orthographicSize;
@@ -229,17 +229,17 @@ public class CameraControl : MonoBehaviour {
 					{
 						if(currtimefollowing<timetofollow)
 						{
-							float valuex=UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition.x;
-							float valuey=UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition.y;
+							float valuex=UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition.x;
+							float valuey=UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition.y;
 							if(!addedadjustarrow)
 							{
 								valuex+=150*Screen.width/561;
 								valuey-=100*Screen.width/561;
 								addedadjustarrow=true;
 							}
-							UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition=new Vector2(valuex,valuey);
+							UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.GetComponent<RectTransform>().anchoredPosition=new Vector2(valuex,valuey);
 							//Todo Center camera in dark server, red lights and 3 secondslowdown
-							Vector3 DarkServerPos=GameObject.Find("TD_Level(Clone)").gameObject.transform.FindChild("Enemies").gameObject.transform.FindChild("0").gameObject.transform.FindChild("Enemy").transform.position;
+							Vector3 DarkServerPos=GameObject.Find("TD_Level(Clone)").gameObject.transform.Find("Enemies").gameObject.transform.Find("0").gameObject.transform.Find("Enemy").transform.position;
 							Camera.main.transform.position= new Vector3 (DarkServerPos.x,DarkServerPos.y,-10);
 							currtimefollowing+=Time.deltaTime;
 						}

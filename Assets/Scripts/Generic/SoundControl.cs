@@ -357,8 +357,8 @@ public static class SoundControl {
 	private static void SetGameObjectsVolume(float volume){
 		GameObject overmap = GameObject.FindGameObjectWithTag("Overmap");
 		if(overmap!=null){
-		if(overmap.transform.FindChild("MyUnits")!=null){
-			Transform myunits = overmap.transform.FindChild("MyUnits");
+		if(overmap.transform.Find("MyUnits")!=null){
+			Transform myunits = overmap.transform.Find("MyUnits");
 			for(int i=0; i<myunits.childCount; i++){
 				if(myunits.GetChild(i).childCount == 1){
 					if(myunits.GetChild(i).GetChild(0).childCount==1){
@@ -371,8 +371,8 @@ public static class SoundControl {
 			}
 	
 
-		if(overmap.transform.FindChild("EnemyUnits")!=null){
-			Transform enemyunits = overmap.transform.FindChild("EnemyUnits");
+		if(overmap.transform.Find("EnemyUnits")!=null){
+			Transform enemyunits = overmap.transform.Find("EnemyUnits");
 			for(int i=0; i<enemyunits.childCount; i++){
 				if(enemyunits.GetChild(i).childCount == 1){
 					if(enemyunits.GetChild(i).GetChild(0).childCount==1){

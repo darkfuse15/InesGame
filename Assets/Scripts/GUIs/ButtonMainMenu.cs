@@ -87,14 +87,14 @@ public class ButtonMainMenu : MonoBehaviour {
 			LoadQuiz(-1);
 		}
 		SoundControl.PlayMusic(GlobalData.Music_Paths[0], true);
-		this.transform.FindChild("OptionsMenu").GetComponent<OptionsMenu>().updateMusicSFXImages();
+		this.transform.Find("OptionsMenu").GetComponent<OptionsMenu>().updateMusicSFXImages();
 	}
 	// Update is called once per frame
 	void Update () {
 		if(!ended_splash){
 			if(splash.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Base Layer.End")){
 				splash.SetActive(false);
-				this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(true);
+				this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(true);
 				ended_splash = true;
 			}
 		}
@@ -147,7 +147,7 @@ public class ButtonMainMenu : MonoBehaviour {
 		#endif
 
 		#if UNITY_EDITOR
-		GameObject.Find("MainMenu").transform.FindChild("LeaderBoardMenu").gameObject.GetComponent<LeaderBoard>().ShowLeaderBoard();
+		GameObject.Find("MainMenu").transform.Find("LeaderBoardMenu").gameObject.GetComponent<LeaderBoard>().ShowLeaderBoard();
 		#endif
 
 		/*SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
@@ -169,14 +169,14 @@ public class ButtonMainMenu : MonoBehaviour {
 
 
 	public void MainShowLeaderBoard(){
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(false);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(false);
 		//Show Leaderboard
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
-		GameObject.Find("MainMenu").transform.FindChild("LeaderBoardMenu").gameObject.SetActive(true);
-		GameObject.Find("MainMenu").transform.FindChild("OptionsMenu").gameObject.SetActive(false);
-		GameObject.Find("MainMenu").transform.FindChild("QuizMenu").gameObject.SetActive(false);
-		GameObject.Find("MainMenu").transform.FindChild("HomeMenu").FindChild("btn_PlayButton").gameObject.SetActive(false);
-		Transform mbb = GameObject.Find("MainMenu").transform.FindChild("HomeMenu").FindChild("MainBottomBar");
+		GameObject.Find("MainMenu").transform.Find("LeaderBoardMenu").gameObject.SetActive(true);
+		GameObject.Find("MainMenu").transform.Find("OptionsMenu").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").transform.Find("QuizMenu").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").transform.Find("HomeMenu").Find("btn_PlayButton").gameObject.SetActive(false);
+		Transform mbb = GameObject.Find("MainMenu").transform.Find("HomeMenu").Find("MainBottomBar");
 		for(int i=0; i<4; i++){
 			if(i == 0){
 				mbb.GetChild(i).GetComponent<Button>().image.color = btn_selected_color;
@@ -185,33 +185,33 @@ public class ButtonMainMenu : MonoBehaviour {
 				mbb.GetChild(i).GetComponent<Image>().color = btn_unselected_color;
 			}
 		}
-		GameObject.Find("MainMenu").transform.FindChild("PlayMenu").gameObject.SetActive(false);
-		GameObject.Find("MainMenu").transform.FindChild("LevelsMenu").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").transform.Find("PlayMenu").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").transform.Find("LevelsMenu").gameObject.SetActive(false);
 		
 		
 		//	this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		GameObject.Find("MainMenu").transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
-		GameObject.Find("MainMenu").transform.FindChild("OptionsMenu").gameObject.transform.FindChild("Credits").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").transform.Find("OptionsMenu").gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
+		GameObject.Find("MainMenu").transform.Find("OptionsMenu").gameObject.transform.Find("Credits").gameObject.SetActive(false);
 	}
 
 
 	public void GoToOptions(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(false);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(false);
 		
-		this.transform.FindChild("LeaderBoardMenu").gameObject.SetActive(false);
-		GameObject.Find("MainMenu").gameObject.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_settings");
-		this.transform.FindChild("OptionsMenu").gameObject.SetActive(true);
-		this.transform.FindChild("QuizMenu").gameObject.SetActive(false);
-		this.transform.FindChild("HomeMenu").FindChild("btn_PlayButton").gameObject.SetActive(false);
+		this.transform.Find("LeaderBoardMenu").gameObject.SetActive(false);
+		GameObject.Find("MainMenu").gameObject.transform.Find("OptionsMenu").gameObject.transform.Find("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_settings");
+		this.transform.Find("OptionsMenu").gameObject.SetActive(true);
+		this.transform.Find("QuizMenu").gameObject.SetActive(false);
+		this.transform.Find("HomeMenu").Find("btn_PlayButton").gameObject.SetActive(false);
 		BottomButtonsColors(1);
-		this.transform.FindChild("PlayMenu").gameObject.SetActive(false);
-		this.transform.FindChild("LevelsMenu").gameObject.SetActive(false);
+		this.transform.Find("PlayMenu").gameObject.SetActive(false);
+		this.transform.Find("LevelsMenu").gameObject.SetActive(false);
 
 	//	this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("Credits").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("Credits").gameObject.SetActive(false);
 
 
 		//Update SFX and Music Icons
@@ -221,77 +221,77 @@ public class ButtonMainMenu : MonoBehaviour {
 
 	public void GoToQuiz(){
 
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(false);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(false);
 
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 
-		this.transform.FindChild("LeaderBoardMenu").gameObject.SetActive(false);
-		this.transform.FindChild("OptionsMenu").gameObject.SetActive(false);
-		this.transform.FindChild("QuizMenu").gameObject.SetActive(true);
-		this.transform.FindChild("HomeMenu").FindChild("btn_PlayButton").gameObject.SetActive(false);
+		this.transform.Find("LeaderBoardMenu").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").gameObject.SetActive(true);
+		this.transform.Find("HomeMenu").Find("btn_PlayButton").gameObject.SetActive(false);
 		BottomButtonsColors(2);
-		this.transform.FindChild("PlayMenu").gameObject.SetActive(false);
-		this.transform.FindChild("LevelsMenu").gameObject.SetActive(false);
+		this.transform.Find("PlayMenu").gameObject.SetActive(false);
+		this.transform.Find("LevelsMenu").gameObject.SetActive(false);
 		
-		this.transform.FindChild("QuizMenu").FindChild("QuizDificulty").gameObject.SetActive(true);
-		this.transform.FindChild("QuizMenu").FindChild("QuestionsMask").gameObject.SetActive(false);
-		this.transform.FindChild("QuizMenu").FindChild("QuestionAnswerWindow").gameObject.SetActive(false);
-		this.transform.FindChild("QuizMenu").FindChild("btn_back").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").Find("QuizDificulty").gameObject.SetActive(true);
+		this.transform.Find("QuizMenu").Find("QuestionsMask").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").Find("QuestionAnswerWindow").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").Find("btn_back").gameObject.SetActive(false);
 		
 		//this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("Credits").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("Credits").gameObject.SetActive(false);
 	}
 
 	public void GoToHome(){
 
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(true);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(true);
 
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 		
-		this.transform.FindChild("bg").gameObject.SetActive(true);
-		this.transform.FindChild("LeaderBoardMenu").gameObject.SetActive(false);
-		this.transform.FindChild("OptionsMenu").gameObject.SetActive(false);
-		this.transform.FindChild("QuizMenu").gameObject.SetActive(false);
-		this.transform.FindChild("HomeMenu").gameObject.SetActive(true);
-		this.transform.FindChild("HomeMenu").FindChild("btn_PlayButton").gameObject.SetActive(true);
+		this.transform.Find("bg").gameObject.SetActive(true);
+		this.transform.Find("LeaderBoardMenu").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").gameObject.SetActive(false);
+		this.transform.Find("HomeMenu").gameObject.SetActive(true);
+		this.transform.Find("HomeMenu").Find("btn_PlayButton").gameObject.SetActive(true);
 		BottomButtonsColors(3);
-		this.transform.FindChild("PlayMenu").gameObject.SetActive(false);
-		this.transform.FindChild("LevelsMenu").gameObject.SetActive(false);
+		this.transform.Find("PlayMenu").gameObject.SetActive(false);
+		this.transform.Find("LevelsMenu").gameObject.SetActive(false);
 
 		//this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
-		this.transform.FindChild("OptionsMenu").gameObject.transform.FindChild("Credits").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.transform.Find("OptionsMenu").gameObject.transform.Find("Credits").gameObject.SetActive(false);
 	}
 
 	public void GoToPlayMenu(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[1], false, true, true);
 
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(false);
-		this.transform.FindChild("LeaderBoardMenu").gameObject.SetActive(false);
-		this.transform.FindChild("OptionsMenu").gameObject.SetActive(false);
-		this.transform.FindChild("QuizMenu").gameObject.SetActive(false);
-		this.transform.FindChild("HomeMenu").FindChild("btn_PlayButton").gameObject.SetActive(false);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(false);
+		this.transform.Find("LeaderBoardMenu").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").gameObject.SetActive(false);
+		this.transform.Find("QuizMenu").gameObject.SetActive(false);
+		this.transform.Find("HomeMenu").Find("btn_PlayButton").gameObject.SetActive(false);
 		BottomButtonsColors(4);
 		
- 		this.transform.FindChild("PlayMenu").GetComponent<PlayerSelectMenu>().Update_LockedDifficulties();
-		this.transform.FindChild("PlayMenu").gameObject.SetActive(true);
-		this.transform.FindChild("LevelsMenu").gameObject.SetActive(false);
+ 		this.transform.Find("PlayMenu").GetComponent<PlayerSelectMenu>().Update_LockedDifficulties();
+		this.transform.Find("PlayMenu").gameObject.SetActive(true);
+		this.transform.Find("LevelsMenu").gameObject.SetActive(false);
 		
 		//	this.transform.FindChild("OptionsMenu").FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		this.transform.FindChild("OptionsMenu").FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
-		this.transform.FindChild("OptionsMenu").FindChild("Credits").gameObject.SetActive(false);
+		this.transform.Find("OptionsMenu").Find("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.transform.Find("OptionsMenu").Find("Credits").gameObject.SetActive(false);
 
 		Debug.Log("PL_Choose"+PlayerData.picked_playerid);
 	}
 
 
 	public void GoToInGame(){
-		this.gameObject.transform.FindChild("HomeMenu").gameObject.transform.FindChild("InternetMessage").gameObject.SetActive(false);
-		this.transform.FindChild("PlayMenu").gameObject.SetActive(false);
-		this.transform.FindChild("LevelsMenu").gameObject.SetActive(false);
-		this.transform.FindChild("HomeMenu").gameObject.SetActive(false);
-		this.transform.FindChild("bg").gameObject.SetActive(false);
+		this.gameObject.transform.Find("HomeMenu").gameObject.transform.Find("InternetMessage").gameObject.SetActive(false);
+		this.transform.Find("PlayMenu").gameObject.SetActive(false);
+		this.transform.Find("LevelsMenu").gameObject.SetActive(false);
+		this.transform.Find("HomeMenu").gameObject.SetActive(false);
+		this.transform.Find("bg").gameObject.SetActive(false);
 		this.transform.parent.GetChild(1).gameObject.SetActive(true);
 
 	}
@@ -300,7 +300,7 @@ public class ButtonMainMenu : MonoBehaviour {
 	Color btn_unselected_color = new Color(0/255f, 11/255f, 82/255f);
 	//0 leaderboard, 1 options, 2 quiz, 3 home
 	private void BottomButtonsColors(int menu_id){
-		Transform mbb = this.transform.FindChild("HomeMenu").FindChild("MainBottomBar");
+		Transform mbb = this.transform.Find("HomeMenu").Find("MainBottomBar");
 		for(int i=0; i<4; i++){
 			if(menu_id == i){
 				mbb.GetChild(i).GetComponent<Button>().image.color = btn_selected_color;

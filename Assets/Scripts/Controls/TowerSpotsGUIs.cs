@@ -12,7 +12,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 	GameObject UI_Tutorial;
 
 	void Start () {
-		UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 		//GetMousePosition
 
 	}
@@ -45,7 +45,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 	}
 
 	public void Click_Outside(){
-		UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 		if(!UI_Tutorial.activeSelf || GlobalData.TutCanBuildFree)
 		{
 			Debug.Log ("Clickoutside");
@@ -154,7 +154,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 				PlayerData.energy_queue.Add(-GlobalData.TOWER_BUILD_COSTS[towerid]);
 				SoundControl.PlaySFX(GlobalData.SFX_Paths[10], true, true, true);
 				for(int i=1;i<=5;i++) {
-					btns.transform.FindChild("btn_Tower"+i).gameObject.SetActive(false);
+					btns.transform.Find("btn_Tower"+i).gameObject.SetActive(false);
 				}
 			
 				
