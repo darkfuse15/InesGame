@@ -27,20 +27,23 @@ public class TDEnergyBar : MonoBehaviour {
 
 	void EnergyBar(){
 		if(can_energize){
-		if(PlayerData.energy_queue.Count>0){
-			if(timer<time){
-				timer+=Time.deltaTime;
+			if(PlayerData.energy_queue.Count>0){
+				if(timer<time){
+					timer+=Time.deltaTime;
 					float current_energy = Mathf.Lerp(energy, energy+PlayerData.energy_queue[0], timer/time)/100f;
-					bar.fillAmount = current_energy;
-					txt.text = Mathf.CeilToInt(current_energy*100).ToString();
-			}else{
-				energy=Mathf.Clamp(energy+PlayerData.energy_queue[0], 0, 100);
-				txt.text = Mathf.CeilToInt(energy).ToString();
-				PlayerData.current_energy = energy;
-				PlayerData.energy_queue.RemoveAt(0);
-				timer=0;
+
+					if (energy != 100) {
+						bar.fillAmount = current_energy;
+						txt.text = Mathf.CeilToInt (current_energy * 100).ToString ();
+					}
+				}else{
+					energy=Mathf.Clamp(energy+PlayerData.energy_queue[0], 0, 100);
+					txt.text = Mathf.CeilToInt(energy).ToString();
+					PlayerData.current_energy = energy;
+					PlayerData.energy_queue.RemoveAt(0);
+					timer=0;
+				}
 			}
-		}
 		}
 	}
 
