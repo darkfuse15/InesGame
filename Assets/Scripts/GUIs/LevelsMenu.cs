@@ -65,7 +65,7 @@ public class LevelsMenu : MonoBehaviour {
 	public void BackToPlayMenu(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 		
-		GameObject.Find ("MainMenu").transform.FindChild("PlayMenu").gameObject.SetActive(true);
+		GameObject.Find ("MainMenu").transform.Find("PlayMenu").gameObject.SetActive(true);
 		this.gameObject.SetActive(false);
 	}
 

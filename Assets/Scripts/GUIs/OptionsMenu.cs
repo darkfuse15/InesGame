@@ -26,16 +26,16 @@ public class OptionsMenu : MonoBehaviour {
 	public void ShowResetGUI(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 		
-		this.gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(false);
-		this.gameObject.transform.FindChild("ResetGUI").gameObject.SetActive(true);
+		this.gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(false);
+		this.gameObject.transform.Find("ResetGUI").gameObject.SetActive(true);
 	}
 
 
 	public void HideResetGUI(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 		
-		this.gameObject.transform.FindChild("ResetGUI").gameObject.SetActive(false);
-		this.gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.gameObject.transform.Find("ResetGUI").gameObject.SetActive(false);
+		this.gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
 	}
 	
 	public void ResetGame(){
@@ -52,10 +52,10 @@ public class OptionsMenu : MonoBehaviour {
 		
 
 	//	this.gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Options";
-		this.gameObject.transform.FindChild("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_credits");
-		this.gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(false);
+		this.gameObject.transform.Find("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_credits");
+		this.gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(false);
 
-		this.gameObject.transform.FindChild("Credits").gameObject.SetActive(true);
+		this.gameObject.transform.Find("Credits").gameObject.SetActive(true);
 		//this.gameObject.transform.FindChild("CreditsScreenObjects").gameObject.SetActive(true);
 	}
 
@@ -64,10 +64,10 @@ public class OptionsMenu : MonoBehaviour {
 		
 		//this.gameObject.transform.FindChild("CreditsScreenObjects").gameObject.SetActive(true);
 	//	this.gameObject.transform.FindChild("OptionsLabel").GetComponent<Text>().text="Settings";
-		this.gameObject.transform.FindChild("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_settings");
+		this.gameObject.transform.Find("OptionsLabel").GetComponent<Image>().sprite = Resources.Load<Sprite>("OptionsGUI/title_settings");
 		
-		this.gameObject.transform.FindChild("Credits").gameObject.SetActive(false);
-		this.gameObject.transform.FindChild("OptionsMainScreenObjects").gameObject.SetActive(true);
+		this.gameObject.transform.Find("Credits").gameObject.SetActive(false);
+		this.gameObject.transform.Find("OptionsMainScreenObjects").gameObject.SetActive(true);
 
 	}
 
@@ -155,7 +155,7 @@ public class OptionsMenu : MonoBehaviour {
 		string saveddata=JSONMaker.MakeSaveFile();
 		PlayerPrefs.SetString("PlayerSavedData",saveddata);
 
-		GameObject.Find("MainMenu").transform.FindChild("PlayMenu").transform.FindChild("LevelSelectMenu").transform.FindChild("InputNameBG").transform.FindChild("InputName").GetComponent<InputField>().text=PlayerData.playername;
+		GameObject.Find("MainMenu").transform.Find("PlayMenu").transform.Find("LevelSelectMenu").transform.Find("InputNameBG").transform.Find("InputName").GetComponent<InputField>().text=PlayerData.playername;
 	}
 	//JoaoResetData
 }

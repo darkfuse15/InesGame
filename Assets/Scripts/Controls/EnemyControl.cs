@@ -41,7 +41,7 @@ public class EnemyControl : MonoBehaviour {
 		}
 
 		//JoaoBarFollow
-		GameObject Enemy_Bars=GameObject.Find("InGame").transform.FindChild("TD").FindChild("enemy_bars").gameObject;
+		GameObject Enemy_Bars=GameObject.Find("InGame").transform.Find("TD").Find("enemy_bars").gameObject;
 		EnemyBar = (GameObject)Instantiate(Resources.Load("Prefabs/ObjectBar"));
 		EnemyBar.transform.parent=Enemy_Bars.transform;
 		EnemyBar.GetComponent<ObjectEnergyBar>().Init(this.gameObject);
@@ -68,19 +68,19 @@ public class EnemyControl : MonoBehaviour {
 	}
 
 	void Start () {
-		UI_Tutorial=GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("Tutorial").gameObject;
+		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 
 		Debug.Log (this.status.type);
 		if(this.status.type==0)
 		{
-			GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("DarkServerAlert").gameObject.SetActive(true);
+			GameObject.Find("Canvas").transform.Find("InGame").transform.Find("DarkServerAlert").gameObject.SetActive(true);
 			StartCoroutine(ActionAfterTimer.Set(3, delegate {
-				GameObject.Find("Canvas").transform.FindChild("InGame").transform.FindChild("DarkServerAlert").gameObject.SetActive(false);
+				GameObject.Find("Canvas").transform.Find("InGame").transform.Find("DarkServerAlert").gameObject.SetActive(false);
 			}));
 		}
 
 		//JoaoEnemyArrow
-		EnemyArrow=this.transform.FindChild("Arrow").gameObject;
+		EnemyArrow=this.transform.Find("Arrow").gameObject;
 		//JoaoEnemyArrow
 	}
 

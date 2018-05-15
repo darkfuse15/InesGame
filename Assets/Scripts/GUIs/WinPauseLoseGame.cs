@@ -30,7 +30,7 @@ public class WinPauseLoseGame : MonoBehaviour {
 		Destroy_InGameObjects();
 		Disable_All_InGame_GUIs();
 		PlayerData.current_score = 0;
-		MainMenu.transform.FindChild("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level);
+		MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level);
 	}
 	
 	public void NextGame(){
@@ -41,21 +41,21 @@ public class WinPauseLoseGame : MonoBehaviour {
 
 
 		if(GlobalData.current_level<10)
-			MainMenu.transform.FindChild("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
+			MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
 		else
 		{
-			end_anim_tr =GameObject.Find("Canvas").transform.FindChild("InGame").gameObject.transform.FindChild("EndAnim");
+			end_anim_tr =GameObject.Find("Canvas").transform.Find("InGame").gameObject.transform.Find("EndAnim");
 			end_anim_tr.gameObject.SetActive(true);
 
-			GameObject.Find("InGame").gameObject.transform.FindChild("EndAnim").gameObject.transform.FindChild("Screen01").gameObject.transform.FindChild("Player").gameObject.GetComponent<Animator>().SetInteger("player", PlayerData.picked_playerid);
+			GameObject.Find("InGame").gameObject.transform.Find("EndAnim").gameObject.transform.Find("Screen01").gameObject.transform.Find("Player").gameObject.GetComponent<Animator>().SetInteger("player", PlayerData.picked_playerid);
 			doingendanim=true;
 			end_anim_tr.GetComponent<Button>().onClick.RemoveAllListeners();
 			end_anim_tr.GetComponent<Button>().onClick.AddListener(()=>{
 				end_anim_tr.gameObject.SetActive(false);
 				doingendanim=false;
-				GameObject.Find("Canvas").transform.FindChild("InGame").gameObject.transform.FindChild("EndAnim").gameObject.SetActive(false);
+				GameObject.Find("Canvas").transform.Find("InGame").gameObject.transform.Find("EndAnim").gameObject.SetActive(false);
 				//Win();
-				MainMenu.transform.FindChild("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
+				MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
 
 				//Todo if is last game.....
 			});
@@ -66,12 +66,12 @@ public class WinPauseLoseGame : MonoBehaviour {
 
 	public void PauseGame(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
-		GameObject UI_Tutorial = GameObject.Find("Canvas").transform.FindChild("InGame").gameObject.transform.FindChild("Tutorial").gameObject;
+		GameObject UI_Tutorial = GameObject.Find("Canvas").transform.Find("InGame").gameObject.transform.Find("Tutorial").gameObject;
 		if(PlayerData.level_state == 0){
-			transform.FindChild("PauseMenu").gameObject.SetActive(true);
+			transform.Find("PauseMenu").gameObject.SetActive(true);
 			PlayerData.level_state = 2;
 		}else if(PlayerData.level_state==2){
-			transform.FindChild("PauseMenu").gameObject.SetActive(false);
+			transform.Find("PauseMenu").gameObject.SetActive(false);
 			if(!UI_Tutorial.activeSelf || GlobalData.TutCanBuildFree)
 				PlayerData.level_state = 0;
 		}
@@ -90,10 +90,10 @@ public class WinPauseLoseGame : MonoBehaviour {
 			this.transform.GetChild(i).gameObject.SetActive(false);
 		}
 
-		this.transform.FindChild("TD").transform.FindChild("TowerSpotsGUIs").transform.FindChild("pnl_info").gameObject.SetActive(false);
-		int total_towerbuttonsmenus = this.transform.FindChild("TD").transform.FindChild("TowerSpotsGUIs").transform.FindChild("tbtns").childCount;
+		this.transform.Find("TD").transform.Find("TowerSpotsGUIs").transform.Find("pnl_info").gameObject.SetActive(false);
+		int total_towerbuttonsmenus = this.transform.Find("TD").transform.Find("TowerSpotsGUIs").transform.Find("tbtns").childCount;
 		for(int i=0; i<total_towerbuttonsmenus; i++){
-			this.transform.FindChild("TD").transform.FindChild("TowerSpotsGUIs").transform.FindChild("tbtns").transform.GetChild(i).gameObject.SetActive(false);
+			this.transform.Find("TD").transform.Find("TowerSpotsGUIs").transform.Find("tbtns").transform.GetChild(i).gameObject.SetActive(false);
 		}
 	}
 
@@ -103,7 +103,7 @@ public class WinPauseLoseGame : MonoBehaviour {
 		current_speed++;
 		if(current_speed>=game_speeds.Length){
 			current_speed-=1;
-			this.transform.FindChild("TD").transform.FindChild("btn_speedup").GetComponent<Image>().sprite=FastSpeed;
+			this.transform.Find("TD").transform.Find("btn_speedup").GetComponent<Image>().sprite=FastSpeed;
 		}
 		Time.timeScale = game_speeds[current_speed];
 	}
@@ -120,7 +120,7 @@ public class WinPauseLoseGame : MonoBehaviour {
 		{
 			if(GameObject.FindGameObjectWithTag("TD_Level") != null)
 			{
-				transform.FindChild("PauseMenu").gameObject.SetActive(true);
+				transform.Find("PauseMenu").gameObject.SetActive(true);
 				PlayerData.level_state = 2;
 			}
 			// we are in background
@@ -137,9 +137,9 @@ public class WinPauseLoseGame : MonoBehaviour {
 				if(end_anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.End")){
 					end_anim_tr.gameObject.SetActive(false);
 					doingendanim=false;
-					GameObject.Find("Canvas").transform.FindChild("InGame").gameObject.transform.FindChild("EndAnim").gameObject.SetActive(false);
+					GameObject.Find("Canvas").transform.Find("InGame").gameObject.transform.Find("EndAnim").gameObject.SetActive(false);
 					//Win();
-					MainMenu.transform.FindChild("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
+					MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
 				}
 			}
 		}

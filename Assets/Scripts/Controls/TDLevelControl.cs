@@ -48,7 +48,7 @@ public class TDLevelControl : MonoBehaviour {
 	public void InitLevel(){
 
 		tutorialenemy=false;
-		GameObject.Find("InGame").transform.FindChild("TD").transform.FindChild("LevelText").gameObject.GetComponent<Text>().text="Nível "+GlobalData.current_level;
+		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelText").gameObject.GetComponent<Text>().text="Nível "+GlobalData.current_level;
 		Time.timeScale = 1;
 	
 
@@ -60,13 +60,13 @@ public class TDLevelControl : MonoBehaviour {
 		                                               GlobalData.difficulty_ymap_size[GlobalData.current_difficulty], 
 		                                               main_tower_pos);
 		PlayerData.level_state = 0;
-		UI_InGame = GameObject.Find("Canvas").transform.FindChild("InGame").gameObject;
-		UI_InGame.transform.FindChild("TD").gameObject.SetActive(true);
-		UI_InGame.transform.FindChild("TD").FindChild("energy_bar").GetComponent<TDEnergyBar>().Init();
+		UI_InGame = GameObject.Find("Canvas").transform.Find("InGame").gameObject;
+		UI_InGame.transform.Find("TD").gameObject.SetActive(true);
+		UI_InGame.transform.Find("TD").Find("energy_bar").GetComponent<TDEnergyBar>().Init();
 
-		UI_Tutorial = UI_InGame.transform.FindChild("Tutorial").gameObject;
-		UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").gameObject.SetActive(true);
-		UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.SetActive(true);
+		UI_Tutorial = UI_InGame.transform.Find("Tutorial").gameObject;
+		UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").gameObject.SetActive(true);
+		UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.SetActive(true);
 		UI_Tutorial.SetActive(false);
 		ingame_tutorial_refs.Clear();
 		GlobalData.tutorial_state=0;
@@ -416,19 +416,19 @@ public class TDLevelControl : MonoBehaviour {
 		StopAllEnemies();
 		UnlockLevels();
 		PlayerData.current_score+=Mathf.CeilToInt(5*(PlayerData.current_energy));
-		UI_InGame.transform.FindChild("WinMenu").FindChild("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
-		UI_InGame.transform.FindChild("WinMenu").gameObject.SetActive(true);
+		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
+		UI_InGame.transform.Find("WinMenu").gameObject.SetActive(true);
 		PlayerData.main_tower.GetComponent<Animator>().SetInteger("p_status", 2);
-		UI_InGame.transform.FindChild("TD").gameObject.SetActive(false);
+		UI_InGame.transform.Find("TD").gameObject.SetActive(false);
 	}
 	void Lose(){
 		PlayerData.level_state = -1;
 		StopAllEnemies();
 		PlayerData.current_score+=Mathf.CeilToInt(5*(PlayerData.current_energy));
-		UI_InGame.transform.FindChild("LoseMenu").FindChild("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
-		UI_InGame.transform.FindChild("LoseMenu").gameObject.SetActive(true);
+		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
+		UI_InGame.transform.Find("LoseMenu").gameObject.SetActive(true);
 		PlayerData.main_tower.GetComponent<Animator>().SetInteger("p_status", 3);
-		UI_InGame.transform.FindChild("TD").gameObject.SetActive(false);
+		UI_InGame.transform.Find("TD").gameObject.SetActive(false);
 		Time.timeScale = 1;
 		PlayerData.current_score = 0;
 	}
@@ -482,14 +482,14 @@ public class TDLevelControl : MonoBehaviour {
 	Transform end_anim_tr;
 	bool doing_endanim=false;
 	private void StartEndAnim(){
-		end_anim_tr =GameObject.Find("Canvas").transform.FindChild("InGame").gameObject.transform.FindChild("EndAnim");
+		end_anim_tr =GameObject.Find("Canvas").transform.Find("InGame").gameObject.transform.Find("EndAnim");
 		end_anim_tr.gameObject.SetActive(true);
 		
 		end_anim_tr.GetComponent<Button>().onClick.RemoveAllListeners();
 		end_anim_tr.GetComponent<Button>().onClick.AddListener(()=>{
 			end_anim_tr.gameObject.SetActive(false);
 			//Win();
-			GameObject.Find("MainMenu").transform.FindChild("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
+			GameObject.Find("MainMenu").transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
 		});
 		end_anim = end_anim_tr.GetComponent<Animator>();
 		doing_endanim=true;
@@ -543,15 +543,15 @@ public class TDLevelControl : MonoBehaviour {
 	private Animator TutObjects,TutBaloon;
 	private int baloontutstatestate=-1;
 	private void Tutorial_Setup(int tutorial_id){
-		TutObjects = UI_Tutorial.transform.FindChild("TutorialObjects").gameObject.transform.FindChild("INES_Tutorial").GetComponent<Animator>();
-		TutBaloon = UI_Tutorial.transform.FindChild("TutorialObjects").gameObject.transform.FindChild("Baloon").GetComponent<Animator>();
+		TutObjects = UI_Tutorial.transform.Find("TutorialObjects").gameObject.transform.Find("INES_Tutorial").GetComponent<Animator>();
+		TutBaloon = UI_Tutorial.transform.Find("TutorialObjects").gameObject.transform.Find("Baloon").GetComponent<Animator>();
 		Debug.Log ("Tutorial_Setup"+tutorial_id);
 		if(tutorial_id == 0){
-			if(this.transform.FindChild("Enemies").childCount>0){
-				ingame_tutorial_refs.Add(this.transform.FindChild("Enemies").GetChild(0).gameObject);
-				UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), true);
+			if(this.transform.Find("Enemies").childCount>0){
+				ingame_tutorial_refs.Add(this.transform.Find("Enemies").GetChild(0).gameObject);
+				UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), true);
 
-				UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Cuidado! Não deixes os agentes do dark server chegar ao teu computador";
+				UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Cuidado! Não deixes os agentes do dark server chegar ao teu computador";
 				GlobalData.current_tutorial=tutorial_id;
 				on_tutorial = true;
 				StartCoroutine(ActionAfterTimer.Set(1, delegate {
@@ -572,9 +572,9 @@ public class TDLevelControl : MonoBehaviour {
 			}
 
 		}else if(tutorial_id == 1){
-			ingame_tutorial_refs.Add(this.transform.FindChild("Towers").FindChild("0").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1,0), true);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Constroi defesas nestas bases de construção";
+			ingame_tutorial_refs.Add(this.transform.Find("Towers").Find("0").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1,0), true);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Constroi defesas nestas bases de construção";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -584,10 +584,10 @@ public class TDLevelControl : MonoBehaviour {
 			}));
 			//UI_Tutorial.SetActive(true);
 		}else if(tutorial_id == 2){
-			UI_InGame.transform.FindChild("TD").FindChild("TowerSpotsGUIs").gameObject.SetActive(true);
-			ingame_tutorial_refs.Add(UI_InGame.transform.FindChild("TD").FindChild("energy_bar").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Construir consome energia! Cuidado para não chegares ao zero!";
+			UI_InGame.transform.Find("TD").Find("TowerSpotsGUIs").gameObject.SetActive(true);
+			ingame_tutorial_refs.Add(UI_InGame.transform.Find("TD").Find("energy_bar").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Construir consome energia! Cuidado para não chegares ao zero!";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -600,9 +600,9 @@ public class TDLevelControl : MonoBehaviour {
 				EndTutorial();
 			}));
 		}else if(tutorial_id == 3){
-			ingame_tutorial_refs.Add(UI_InGame.transform.FindChild("TD").FindChild("TowerSpotsGUIs").FindChild("tbtns").FindChild("btn_Tower1").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Toca num botão de uma defesa para construir";
+			ingame_tutorial_refs.Add(UI_InGame.transform.Find("TD").Find("TowerSpotsGUIs").Find("tbtns").Find("btn_Tower1").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Toca num botão de uma defesa para construir";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -612,9 +612,9 @@ public class TDLevelControl : MonoBehaviour {
 				TutBaloon.SetInteger("state",0);
 			}));
 		}else if(tutorial_id == 4){
-			ingame_tutorial_refs.Add(this.transform.FindChild("Towers").FindChild("0").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1,0), true);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Tocar numa defesa tens a opção para reparar, melhorar e remover";
+			ingame_tutorial_refs.Add(this.transform.Find("Towers").Find("0").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1,0), true);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Tocar numa defesa tens a opção para reparar, melhorar e remover";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -624,10 +624,10 @@ public class TDLevelControl : MonoBehaviour {
 				TutBaloon.SetInteger("state",0);
 			}));
 		}else if(tutorial_id == 5){
-			this.transform.FindChild("Towers").FindChild("0").GetComponent<TowerSpotControl>().OpenMenu();
-			ingame_tutorial_refs.Add(UI_InGame.transform.FindChild("TD").FindChild("TowerSpotsGUIs").FindChild("tbtns").FindChild("btn_Repair").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Aqui reparas a defesa!";
+			this.transform.Find("Towers").Find("0").GetComponent<TowerSpotControl>().OpenMenu();
+			ingame_tutorial_refs.Add(UI_InGame.transform.Find("TD").Find("TowerSpotsGUIs").Find("tbtns").Find("btn_Repair").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Aqui reparas a defesa!";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -637,11 +637,11 @@ public class TDLevelControl : MonoBehaviour {
 				TutBaloon.SetInteger("state",0);
 			}));
 		}else if(tutorial_id == 6){
-			this.transform.FindChild("Towers").FindChild("0").GetComponent<TowerSpotControl>().OpenMenu();
+			this.transform.Find("Towers").Find("0").GetComponent<TowerSpotControl>().OpenMenu();
 			
-			ingame_tutorial_refs.Add(UI_InGame.transform.FindChild("TD").FindChild("TowerSpotsGUIs").FindChild("tbtns").FindChild("btn_Upgrade").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Neste botão fazes uma melhoria à defesa";
+			ingame_tutorial_refs.Add(UI_InGame.transform.Find("TD").Find("TowerSpotsGUIs").Find("tbtns").Find("btn_Upgrade").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Neste botão fazes uma melhoria à defesa";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -651,11 +651,11 @@ public class TDLevelControl : MonoBehaviour {
 				TutBaloon.SetInteger("state",0);
 			}));
 		}else if(tutorial_id == 7){
-			this.transform.FindChild("Towers").FindChild("0").GetComponent<TowerSpotControl>().OpenMenu();
+			this.transform.Find("Towers").Find("0").GetComponent<TowerSpotControl>().OpenMenu();
 			
-			ingame_tutorial_refs.Add(UI_InGame.transform.FindChild("TD").FindChild("TowerSpotsGUIs").FindChild("tbtns").FindChild("btn_Delete").gameObject);
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Este botão auto-destroi a tua Torre de defesa";
+			ingame_tutorial_refs.Add(UI_InGame.transform.Find("TD").Find("TowerSpotsGUIs").Find("tbtns").Find("btn_Delete").gameObject);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Este botão auto-destroi a tua Torre de defesa";
 			GlobalData.current_tutorial=tutorial_id;
 			on_tutorial = true;
 			PlayerData.level_state = 2;
@@ -670,10 +670,10 @@ public class TDLevelControl : MonoBehaviour {
 			//UI_Tutorial.SetActive(false);
 			//GlobalData.current_tutorial=tutorial_id;
 			GlobalData.TutCanBuildFree=true;
-			UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.SetActive(false);
-			UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").gameObject.SetActive(false);
+			UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.SetActive(false);
+			UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").gameObject.SetActive(false);
 			TutObjects.SetInteger("state",2);
-			if(this.transform.FindChild("Enemies").FindChild("0")!=null){
+			if(this.transform.Find("Enemies").Find("0")!=null){
 				//Todo Center camera in dark server, red lights and 3 secondslowdown
 				//Vector3 DarkServerPos=this.transform.FindChild("Enemies").gameObject.transform.FindChild("0").gameObject.transform.FindChild("Enemy").transform.position;
 				//Camera.main.transform.position= new Vector3 (DarkServerPos.x,DarkServerPos.y,-10);
@@ -684,11 +684,11 @@ public class TDLevelControl : MonoBehaviour {
 				StartCoroutine(ActionAfterTimer.Set(0.5f, delegate {
 					TutBaloon.SetInteger("state",0);
 				}));
-				UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.SetActive(true);
-				UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").gameObject.SetActive(true);
-				ingame_tutorial_refs.Add(this.transform.FindChild("Enemies").FindChild("0").gameObject);
-				UI_Tutorial.transform.FindChild("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), true);
-				UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").GetChild(0).GetComponent<Text>().text = "Destroi o Dark Server antes que ele te destrua...";
+				UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.SetActive(true);
+				UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").gameObject.SetActive(true);
+				ingame_tutorial_refs.Add(this.transform.Find("Enemies").Find("0").gameObject);
+				UI_Tutorial.transform.Find("Arrows").GetChild(0).GetComponent<Tutorial_Arrow>().Init(ingame_tutorial_refs[0], new Vector2(1, 0), true);
+				UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").GetChild(0).GetComponent<Text>().text = "Destroi o Dark Server antes que ele te destrua...";
 
 				on_tutorial = true;
 				//UI_Tutorial.transform.FindChild("DarkServerAlert").gameObject.SetActive(true);
@@ -698,8 +698,8 @@ public class TDLevelControl : MonoBehaviour {
 					TutObjects.SetInteger("state",3);
 					ingame_tutorial_refs.Clear();
 					PlayerData.level_state = 0;
-					UI_Tutorial.transform.FindChild("Arrows").GetChild(0).gameObject.SetActive(false);
-					UI_Tutorial.transform.FindChild("TutorialObjects").transform.FindChild("Baloon").gameObject.SetActive(false);
+					UI_Tutorial.transform.Find("Arrows").GetChild(0).gameObject.SetActive(false);
+					UI_Tutorial.transform.Find("TutorialObjects").transform.Find("Baloon").gameObject.SetActive(false);
 					UI_Tutorial.SetActive(false);
 					/*StartCoroutine(ActionAfterTimer.Set(0.5f, delegate {
 						UI_Tutorial.SetActive(false);

@@ -10,7 +10,7 @@ public class energyparticle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//FinalPosition=transform.TransformPoint(GameObject.Find("InGame").gameObject.transform.FindChild("TD").gameObject.transform.FindChild("energy_bar").transform.FindChild("txt").GetComponent<RectTransform>().anchoredPosition);
-		GameObject Energynum=GameObject.Find("InGame").gameObject.transform.FindChild("TD").gameObject.transform.FindChild("energy_bar").transform.FindChild("txt").gameObject;
+		GameObject Energynum=GameObject.Find("InGame").gameObject.transform.Find("TD").gameObject.transform.Find("energy_bar").transform.Find("txt").gameObject;
 
 		FinalPosition=Camera.main.ScreenToWorldPoint(Energynum.GetComponent<RectTransform>().transform.position);
 	}

@@ -44,7 +44,7 @@ public class TowerControl : MonoBehaviour {
 		can_do = true;
 		if(TowerBar==null){
 		//JoaoBarFollow
-		GameObject Tower_Bars=GameObject.Find("InGame").transform.FindChild("TD").FindChild("tower_bars").gameObject;
+		GameObject Tower_Bars=GameObject.Find("InGame").transform.Find("TD").Find("tower_bars").gameObject;
 		TowerBar = (GameObject)Instantiate(Resources.Load("Prefabs/ObjectBar"));
 		TowerBar.transform.parent=Tower_Bars.transform;
 		TowerBar.GetComponent<ObjectEnergyBar>().Init(this.gameObject);
