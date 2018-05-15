@@ -116,7 +116,7 @@ public class TDLevelControl : MonoBehaviour {
 	}
 
 	void UpdateScore(){
-		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("{0}", PlayerData.current_score);
+		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("Score: {0}", PlayerData.current_score * 7);
 	}
 
 	void SetxmaxSize(int x){
