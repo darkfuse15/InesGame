@@ -460,7 +460,6 @@ public class TDLevelControl : MonoBehaviour {
 		PlayerData.level_state = -1;
 		StopAllEnemies();
 		PlayerData.current_score+=Mathf.CeilToInt(5*(PlayerData.current_energy));
-
 		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Pontuação: " + fscore;
 		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(1).GetComponent<Text>().text ="Enimigos (" + PlayerData.current_score + ") + Energia (" + Mathf.CeilToInt(5*(PlayerData.current_energy)) + ") + Velocidade (" + PlayerData.score_speed + ")";
 		UI_InGame.transform.Find("LoseMenu").gameObject.SetActive(true);
