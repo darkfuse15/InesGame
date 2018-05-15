@@ -103,9 +103,6 @@ public class TDLevelControl : MonoBehaviour {
 	private void Start(){
 		GlobalData.TutCanBuildFree=false;
 		InitLevel();
-
-
-
 	}
 
 
@@ -115,8 +112,12 @@ public class TDLevelControl : MonoBehaviour {
 		CheckWinLoseConditions();
 		CheckEndAnimEnded();
 		TutorialStartCheck();
+		UpdateScore();
 	}
 
+	void UpdateScore(){
+		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("{0}", PlayerData.current_score);
+	}
 
 	void SetxmaxSize(int x){
 		if(GlobalData.dificulty_xmap_size<x)
