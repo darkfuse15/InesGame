@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class toweraim : MonoBehaviour {
+	
 	 
 	protected Weapon1Control wapons;
 
-
-
-
+	[SerializeField]
 	protected GameObject wapon;
 
 
@@ -37,7 +36,7 @@ public class toweraim : MonoBehaviour {
 				float angle = Mathf.Atan2(targetDir.y ,targetDir.x) * Mathf.Rad2Deg ;
 				Quaternion q = Quaternion.AngleAxis( angle, Vector3.forward);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation , q , 180f);
-				wapons.Update();
+				wapons.Shoot();
 		
 				
 			}
