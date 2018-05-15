@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class toweraim : MonoBehaviour {
-	
 	 
-	protected Weapon1Control wapons;
-
-	[SerializeField]
-	protected GameObject wapon;
 
 
 	//
@@ -21,8 +16,7 @@ public class toweraim : MonoBehaviour {
 
 
 	void Start(){
-		wapons = wapon.GetComponent <Weapon1Control> ();	
-
+		
 	}
 	void Update (){ 
 
@@ -33,13 +27,11 @@ public class toweraim : MonoBehaviour {
 			float  distanceToTarget = Vector3.Distance(transform.position,enemy.transform.position);
 			if (distanceToTarget < range) {
 				Vector3 targetDir = enemy.transform.position - transform.position;
-				float angle = Mathf.Atan2(targetDir.y ,targetDir.x) * Mathf.Rad2Deg ;
+				float angle = Mathf.Atan2(targetDir.y ,targetDir.x) * Mathf.Rad2Deg + 90f ;
 				Quaternion q = Quaternion.AngleAxis( angle, Vector3.forward);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation , q , 180f);
-				wapons.Shoot();
-		
-				
-			}
+
+			}	
 		}
 	}
 

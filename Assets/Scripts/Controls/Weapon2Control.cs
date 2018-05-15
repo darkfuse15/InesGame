@@ -29,7 +29,7 @@ public class Weapon2Control : MonoBehaviour {
 
 	float timer=0;
 	// Update is called once per frame
-	public void Shoot () { 
+	void Update () {
 		if(status.target!=null){
 			if(timer<=0.2f) {
 				timer+=Time.deltaTime;

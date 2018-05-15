@@ -38,7 +38,7 @@ public class Weapon1Control : MonoBehaviour {
 	}
 	float weapon_timer=0;
  
-	public void Shoot () {
+	void Update () {
 		if(status.target !=null){
 		if(cango){
 			if(weapon_timer<=1) {
