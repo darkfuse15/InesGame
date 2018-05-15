@@ -29,7 +29,10 @@ public class WinPauseLoseGame : MonoBehaviour {
 		
 		Destroy_InGameObjects();
 		Disable_All_InGame_GUIs();
+		Time.timeScale = 1;
+		WinPauseLoseGame.score_vel_increase = false;
 		PlayerData.current_score = 0;
+		PlayerData.score_speed = 0;
 		MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level);
 	}
 	
@@ -99,7 +102,11 @@ public class WinPauseLoseGame : MonoBehaviour {
 
 	int current_speed = 0;
 	float[] game_speeds = new float[]{1, 5}; 
+	public static bool score_vel_increase = false;
 	public void SpeedUp(){
+		
+		score_vel_increase = true;
+
 		current_speed++;
 		if(current_speed>=game_speeds.Length){
 			current_speed-=1;
@@ -109,6 +116,9 @@ public class WinPauseLoseGame : MonoBehaviour {
 	}
 
 	public void SpeedDown(){
+		
+		score_vel_increase = false;
+
 		current_speed = 0;
 		Time.timeScale = game_speeds[current_speed];
 	}
@@ -130,7 +140,17 @@ public class WinPauseLoseGame : MonoBehaviour {
 	bool doingendanim=false;
 	Animator end_anim;
 	Transform end_anim_tr;
+	int sc = 0;
 	void Update(){
+
+		if(score_vel_increase){
+			sc += 1;
+			if (sc == 20) {
+				PlayerData.score_speed += 10;
+				sc = 0;
+			}
+		}
+
 		if(doingendanim)
 		{
 			if(end_anim!=null){

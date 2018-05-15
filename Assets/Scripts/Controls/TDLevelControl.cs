@@ -119,7 +119,7 @@ public class TDLevelControl : MonoBehaviour {
 	}
 
 	void UpdateScore(){
-		int sc = PlayerData.current_score;
+		int sc = PlayerData.current_score + PlayerData.score_speed;
 			GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("Score: {0}", sc);
 	}
 
@@ -435,26 +435,40 @@ public class TDLevelControl : MonoBehaviour {
 		}
 	}
 
+
+
 	void Win(){
+		int fscore = PlayerData.current_score + (Mathf.CeilToInt(5*(PlayerData.current_energy))) + PlayerData.score_speed;
+
 		PlayerData.level_state = 1;
 
 		StopAllEnemies();
 		UnlockLevels();
-		int fscore = PlayerData.current_score + (Mathf.CeilToInt(5*(PlayerData.current_energy)));
-		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n" + PlayerData.current_score + " * Energy " + "= " + fscore;
+		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Pontuação: " + fscore;
+		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(1).GetComponent<Text>().text ="Enimigos (" + PlayerData.current_score + ") + Energia (" + Mathf.CeilToInt(5*(PlayerData.current_energy)) + ") + Velocidade (" + PlayerData.score_speed + ")";
 		UI_InGame.transform.Find("WinMenu").gameObject.SetActive(true);
 		PlayerData.main_tower.GetComponent<Animator>().SetInteger("p_status", 2);
 		UI_InGame.transform.Find("TD").gameObject.SetActive(false);
+		Time.timeScale = 1;
+		WinPauseLoseGame.score_vel_increase = false;
+		PlayerData.score_speed = 0;
+		PlayerData.current_score = 0;
 	}
 	void Lose(){
+		int fscore = PlayerData.current_score + (Mathf.CeilToInt(5*(PlayerData.current_energy))) + PlayerData.score_speed;
+
 		PlayerData.level_state = -1;
 		StopAllEnemies();
 		PlayerData.current_score+=Mathf.CeilToInt(5*(PlayerData.current_energy));
-		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
+
+		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Pontuação: " + fscore;
+		UI_InGame.transform.Find("LoseMenu").Find("ScorePopup").GetChild(1).GetComponent<Text>().text ="Enimigos (" + PlayerData.current_score + ") + Energia (" + Mathf.CeilToInt(5*(PlayerData.current_energy)) + ") + Velocidade (" + PlayerData.score_speed + ")";
 		UI_InGame.transform.Find("LoseMenu").gameObject.SetActive(true);
 		PlayerData.main_tower.GetComponent<Animator>().SetInteger("p_status", 3);
 		UI_InGame.transform.Find("TD").gameObject.SetActive(false);
 		Time.timeScale = 1;
+		WinPauseLoseGame.score_vel_increase = false;
+		PlayerData.score_speed = 0;
 		PlayerData.current_score = 0;
 	}
 	void StopAllEnemies(){

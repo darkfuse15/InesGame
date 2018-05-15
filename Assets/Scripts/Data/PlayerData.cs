@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class PlayerData : MonoBehaviour {
 	public static int current_energy = 50;
 	public static int current_score = 0;
+	public static int score_speed = 0;
 	public static List<int> energy_queue = new List<int>();
 
 	public static GameObject main_tower;
