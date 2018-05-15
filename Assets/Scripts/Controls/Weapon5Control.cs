@@ -30,7 +30,7 @@ public class Weapon5Control : MonoBehaviour {
 	}
 	float timetoreach=0;
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 
 		if(!exploded){
 		if(timetoreach<=0.5f) {

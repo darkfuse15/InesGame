@@ -37,7 +37,7 @@ public class Weapon3Control : MonoBehaviour {
 	// Update is called once per frame
 	
 	
-	void Update () {
+	public void Update () {
 		if(status.target!=null){
 		
 		

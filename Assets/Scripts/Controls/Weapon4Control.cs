@@ -21,7 +21,7 @@ public class Weapon4Control : MonoBehaviour {
 
 	}
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 
 		if(activetime<=this.status.attack_duration){
 			if(!has_attacked){

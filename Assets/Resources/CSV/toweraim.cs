@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class toweraim : MonoBehaviour {
 	 
-	[SerializeField]
 	protected Weapon1Control wapon1;
 
-	[SerializeField]
-	protected GameObject wapon;
+	protected Weapon2Control wapon2;
+
+	protected Weapon3Control wapon3; 
+
+	protected Weapon4Control wapon4;
+
+	protected Weapon5Control wapon5; 
+
+
+
+
 
 	//
 	//protected float speed = 5f;
@@ -20,8 +28,12 @@ public class toweraim : MonoBehaviour {
 
 
 	void Start(){
-		wapon1 = wapon.gameObject.GetComponent<Weapon1Control>();	
-	}
+		/*wapon1 = GameObject.FindGameObjectWithTag("Weapon1").GetComponent <Weapon1Control> ();	
+		wapon2 = GameObject.FindGameObjectWithTag("Weapon2").GetComponent <Weapon2Control> ();
+		wapon3 = GameObject.FindGameObjectWithTag("Weapon3").GetComponent <Weapon3Control> ();
+		wapon4 = GameObject.FindGameObjectWithTag("Weapon4").GetComponent <Weapon4Control> ();	
+		wapon5 = GameObject.FindGameObjectWithTag("Weapon5").GetComponent <Weapon5Control> ();	
+	*/}
 	void Update (){ 
 
 	
@@ -34,8 +46,14 @@ public class toweraim : MonoBehaviour {
 				float angle = Mathf.Atan2(targetDir.y ,targetDir.x) * Mathf.Rad2Deg ;
 				Quaternion q = Quaternion.AngleAxis( angle, Vector3.forward);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation , q , 180f);
-
-			}	
+	/*			wapon1.Update(); 
+				wapon2.Update(); 
+				wapon3.Update();
+				wapon4.Update();
+				wapon5.Update();
+		
+				
+			*/}
 		}
 	}
 
