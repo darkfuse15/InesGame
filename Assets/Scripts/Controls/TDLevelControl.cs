@@ -115,6 +115,12 @@ public class TDLevelControl : MonoBehaviour {
 		CheckWinLoseConditions();
 		CheckEndAnimEnded();
 		TutorialStartCheck();
+		UpdateScore();
+	}
+
+	void UpdateScore(){
+		int sc = PlayerData.current_score;
+			GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("Score: {0}", sc);
 	}
 
 
@@ -434,8 +440,8 @@ public class TDLevelControl : MonoBehaviour {
 
 		StopAllEnemies();
 		UnlockLevels();
-		PlayerData.current_score+=Mathf.CeilToInt(5*(PlayerData.current_energy));
-		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n"+PlayerData.current_score;
+		int fscore = PlayerData.current_score + (Mathf.CeilToInt(5*(PlayerData.current_energy)));
+		UI_InGame.transform.Find("WinMenu").Find("ScorePopup").GetChild(0).GetComponent<Text>().text ="Score\n" + PlayerData.current_score + " * Energy " + "= " + fscore;
 		UI_InGame.transform.Find("WinMenu").gameObject.SetActive(true);
 		PlayerData.main_tower.GetComponent<Animator>().SetInteger("p_status", 2);
 		UI_InGame.transform.Find("TD").gameObject.SetActive(false);
