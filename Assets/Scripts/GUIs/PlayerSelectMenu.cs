@@ -92,6 +92,10 @@ public class PlayerSelectMenu : MonoBehaviour {
 
 
 	public void ShowLevelMenu(int difficulty){
+		if(PlayerData.playername == "" || InputNameBG.transform.Find("InputName").GetComponent<InputField>().text == ""){
+			return;
+		} 
+
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 		
 		if(GlobalData.DifficultiesUnlocked[difficulty])
