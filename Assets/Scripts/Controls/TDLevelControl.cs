@@ -48,7 +48,26 @@ public class TDLevelControl : MonoBehaviour {
 	public void InitLevel(){
 
 		tutorialenemy=false;
-		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelText").gameObject.GetComponent<Text>().text="Nível "+GlobalData.current_level;
+
+		string dif = "";
+
+		if(GlobalData.current_difficulty == 0){
+			dif = "Fácil";
+		}else if(GlobalData.current_difficulty == 1){
+			dif = "Médio";
+		}else{
+			dif = "Difícil";
+		}
+
+		//var lvlDifi = GameObject.Find ("InGame").transform.Find ("TD").transform.Find ("LevelText").gameObject.GetComponent<Text> ().text;
+
+		GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelText").gameObject.GetComponent<Text>().text= string.Format("Nível {0} - {1} ",GlobalData.current_level, dif);
+
+		//lvlDifi = string.Format("Nível {0}  -    Dificuldade {1} ",GlobalData.current_level,dif); 
+
+		//GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelText").gameObject.GetComponent<Text>().text="Nível "+GlobalData.current_level;
+
+
 		Time.timeScale = 1;
 	
 
