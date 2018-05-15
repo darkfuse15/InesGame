@@ -5,14 +5,14 @@ public class TowerStatus {
 	
 	public int attack_str = 10;
 	public float cooldown_time = 2;
-	public int attack_range = 1;
+	public int attack_range = 0;
 	public int health = 100;
 	//TODO Weaknesses
 	public int type = 3;
 	public int upgrade_level = 0;
 	
 	//JoaoWeapons
-	public float weapon_attack_range;
+	public float weapon_attack_range = 0;
 	public float weapon_atack_duration;
 	
 	

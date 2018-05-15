@@ -53,7 +53,7 @@ public class CSVReader : MonoBehaviour
 			width = Mathf.Max(width, row.Length); 
 		}
  
-		// creates new 2D string grid to output to
+		// creates new 2D string grid to output to [][] = [,] [x,y] [x][y]
 		string[,] outputGrid = new string[width + 1, lines.Length + 1]; 
 		for (int y = 0; y < lines.Length; y++)
 		{
