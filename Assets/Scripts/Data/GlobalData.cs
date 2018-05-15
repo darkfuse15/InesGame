@@ -138,11 +138,11 @@ public class GlobalData : MonoBehaviour {
 
 	//Tower4 atackstr->percentageofreduced speed
 	public static Dictionary<int, Dictionary<int, TowerStatus>> TOWERSUPGRADEVALUES = new Dictionary<int, Dictionary<int, TowerStatus>>(){
-		{1, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,100,1,0,-1,-1)},{1, new TowerStatus(2,1.25f,3,120,1,1,0,0)},{2, new TowerStatus(4,1,4,150,1,2,0,0)},{3, new TowerStatus(8,0.5f,5,170,1,3,0,0)}}},
-		{2, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,50,2,0,-1,-1)},{1, new TowerStatus(4,0.5f,3,60,2,1,0,0)},{2, new TowerStatus(8,0.4f,4,70,2,2,0,0)},{3, new TowerStatus(16,0.2f,8,80,2,3,0,0)}}},
+		{1, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,100,1,0,0,-1)},{1, new TowerStatus(2,1.25f,3,120,1,1,0,0)},{2, new TowerStatus(4,1,4,150,1,2,0,0)},{3, new TowerStatus(8,0.5f,5,170,1,3,0,0)}}},
+		{2, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,50,2,0,0,-1)},{1, new TowerStatus(4,0.5f,3,60,2,1,0,0)},{2, new TowerStatus(8,0.4f,4,70,2,2,0,0)},{3, new TowerStatus(16,0.2f,8,80,2,3,0,0)}}},
 		{3, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,100,3,0,0,0)},{1, new TowerStatus(6,1.5f,2,100,3,1,0,0)},{2, new TowerStatus(12,1.25f,2,120,3,2,0,0)},{3, new TowerStatus(24,1,3,150,3,3,0,0)}}},
-		{4, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,50,4,0,1,2)},{1, new TowerStatus(4,4.5f,0,60,4,1,0,3)},{2, new TowerStatus(8,4,0,65,4,2,0,4)},{3, new TowerStatus(16,3,0,70,4,3,0,5)}}},
-		{5, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,100,5,0,2,0)},{1, new TowerStatus(6,5,2,100,5,1,0,0)},{2, new TowerStatus(12,3,2,100,5,2,0,0)},{3, new TowerStatus(24,2,2,100,5,3,0,0)}}}
+		{4, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,50,4,0,0,2)},{1, new TowerStatus(4,4.5f,0,60,4,1,0,3)},{2, new TowerStatus(8,4,0,65,4,2,0,4)},{3, new TowerStatus(16,3,0,70,4,3,0,5)}}},
+		{5, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,100,5,0,0,0)},{1, new TowerStatus(6,5,2,100,5,1,0,0)},{2, new TowerStatus(12,3,2,100,5,2,0,0)},{3, new TowerStatus(24,2,2,100,5,3,0,0)}}}
 	};
 
 	public static float[]  Tower4percentslowdown = new float[]{0.2f, 0.4f, 0.6f,0.8f};
