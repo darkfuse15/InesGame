@@ -23,6 +23,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 		//	                                                                   GlobalData.tower_spot_refs[spotid].transform.position);
 			//this.GetComponent<RectTransform>().position= new Vector3 (TowerSpotPosition.x,TowerSpotPosition.y,0);
 		//}
+
 	}
 
 	private void SetTowerRUDBtns(int active_id){
@@ -312,4 +313,5 @@ public class TowerSpotsGUIs : MonoBehaviour {
 			Click_Outside();
 		}
 	}
+
 }
