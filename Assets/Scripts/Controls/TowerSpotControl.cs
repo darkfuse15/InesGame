@@ -104,7 +104,7 @@ public class TowerSpotControl : MonoBehaviour {
 
 					}
 					TowerControl tc = transform.GetChild(0).GetComponent<TowerControl>();
-					int tupgrade_level = tc.status.upgrade_level;
+					int tupgrade_level = tc.status.upgrade_level;           
 					int ttype = tc.status.type;
 					int thealth = tc.status.health;
 					//ToDo Check what is the level of the tower in the spot and the health of it
