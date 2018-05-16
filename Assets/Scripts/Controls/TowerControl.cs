@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TowerControl : MonoBehaviour {
 	public TowerStatus status;
@@ -80,7 +81,7 @@ public class TowerControl : MonoBehaviour {
 	public void UpgradeTower(){
 		int t=this.status.type;
 
-
+		GameObject.FindGameObjectWithTag("TextUpgrade").GetComponent<Text>().text = string.Format( "Custo: - {0} \n Dano: {1}", GlobalData.TOWER_UPGRADE_COSTS, GlobalData.TOWERSUPGRADEVALUES);
 		int ul=this.status.upgrade_level+1;
 		if(ul-1 < GlobalData.TOWER_UPGRADE_COSTS[t].Count){
 			PlayerData.energy_queue.Add(-GlobalData.TOWER_UPGRADE_COSTS[t][ul-1]);
@@ -99,14 +100,16 @@ public class TowerControl : MonoBehaviour {
 	}
 	
 	public bool CanUpgradeLevel(){
+		GameObject.FindGameObjectWithTag("TextUpgrade").GetComponent<Text>().text = string.Format( "Custo: - {0} \n Dano: {1}", GlobalData.TOWER_UPGRADE_COSTS, GlobalData.TOWERSUPGRADEVALUES);
 		if(this.status.upgrade_level<=2)
+			
 			return true;
 		else
 			return false;
 	}
 	
 	public bool CanRepair(){
-		
+		GameObject.FindGameObjectWithTag("TextRepair").GetComponent<Text>().text = string.Format ("Custo: - {0}",GlobalData.TOWER_Repair_COSTS); 
 		if(this.status.health<GlobalData.TOWERSUPGRADEVALUES[this.status.type][this.status.upgrade_level].health)
 			return true;
 		else
@@ -114,6 +117,7 @@ public class TowerControl : MonoBehaviour {
 	}
 	
 	public void RepairTower(){
+		GameObject.FindGameObjectWithTag("TextRepair").GetComponent<Text>().text = string.Format ("Custo: - {0}",GlobalData.TOWER_Repair_COSTS); 
 		if(PlayerData.current_energy>GlobalData.TOWER_Repair_COSTS[this.status.type][this.status.upgrade_level]){
 			PlayerData.energy_queue.Add(-GlobalData.TOWER_Repair_COSTS[this.status.type][this.status.upgrade_level]);
 			this.status.health=GlobalData.TOWERSUPGRADEVALUES[this.status.type][this.status.upgrade_level].health;

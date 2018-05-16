@@ -138,11 +138,11 @@ public class GlobalData : MonoBehaviour {
 
 	//Tower4 atackstr->percentageofreduced speed
 	public static Dictionary<int, Dictionary<int, TowerStatus>> TOWERSUPGRADEVALUES = new Dictionary<int, Dictionary<int, TowerStatus>>(){
-		{1, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,100,1,0,0,-1)},{1, new TowerStatus(2,1.25f,3,120,1,1,0,0)},{2, new TowerStatus(4,1,4,150,1,2,0,0)},{3, new TowerStatus(8,0.5f,5,170,1,3,0,0)}}},
-		{2, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(1,0.5f,1,50,2,0,0,-1)},{1, new TowerStatus(4,0.5f,3,60,2,1,0,0)},{2, new TowerStatus(8,0.4f,4,70,2,2,0,0)},{3, new TowerStatus(16,0.2f,8,80,2,3,0,0)}}},
-		{3, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,100,3,0,0,0)},{1, new TowerStatus(6,1.5f,2,100,3,1,0,0)},{2, new TowerStatus(12,1.25f,2,120,3,2,0,0)},{3, new TowerStatus(24,1,3,150,3,3,0,0)}}},
-		{4, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,50,4,0,0,2)},{1, new TowerStatus(4,4.5f,0,60,4,1,0,3)},{2, new TowerStatus(8,4,0,65,4,2,0,4)},{3, new TowerStatus(16,3,0,70,4,3,0,5)}}},
-		{5, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,2,1,100,5,0,0,0)},{1, new TowerStatus(6,5,2,100,5,1,0,0)},{2, new TowerStatus(12,3,2,100,5,2,0,0)},{3, new TowerStatus(24,2,2,100,5,3,0,0)}}}
+		{1, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(2,0.5f,1,100,1,0,0,-1)},{1, new TowerStatus(2,1.25f,3,120,1,1,0,0)},{2, new TowerStatus(4,1,4,150,1,2,0,0)},{3, new TowerStatus(8,0.5f,5,170,1,3,0,0)}}},
+		{2, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(3,0.5f,1,50,2,0,0,-1)},{1, new TowerStatus(4,0.5f,3,60,2,1,0,0)},{2, new TowerStatus(8,0.4f,4,70,2,2,0,0)},{3, new TowerStatus(16,0.2f,8,80,2,3,0,0)}}},
+		{3, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(4,2,1,100,3,0,0,0)},{1, new TowerStatus(6,1.5f,2,100,3,1,0,0)},{2, new TowerStatus(12,1.25f,2,120,3,2,0,0)},{3, new TowerStatus(24,1,3,150,3,3,0,0)}}},
+		{4, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(5,2,1,50,4,0,0,2)},{1, new TowerStatus(4,4.5f,0,60,4,1,0,3)},{2, new TowerStatus(8,4,0,65,4,2,0,4)},{3, new TowerStatus(16,3,0,70,4,3,0,5)}}},
+		{5, new Dictionary<int,TowerStatus>() {{0, new TowerStatus(6,2,1,100,5,0,0,0)},{1, new TowerStatus(6,5,2,100,5,1,0,0)},{2, new TowerStatus(12,3,2,100,5,2,0,0)},{3, new TowerStatus(24,2,2,100,5,3,0,0)}}}
 	};
 
 	public static float[]  Tower4percentslowdown = new float[]{0.2f, 0.4f, 0.6f,0.8f};
@@ -166,7 +166,7 @@ public class GlobalData : MonoBehaviour {
 	public static Dictionary<int, Dictionary<int, EnemyStatus>> EnemiesStatus = new Dictionary<int, Dictionary<int, EnemyStatus>>(){
 		//int energy_bonus, int main_attack, int attack_str, float cooldown_time, int health, float movement_speed, int type
 		{0, new Dictionary<int, EnemyStatus>(){ // BOSS
-				{0, new EnemyStatus(250, 9999, 25, 3, 150, 0.25f, 0)},
+				{0, new EnemyStatus(250, 9999, 25, 3, 150, 0.2f, 0)},
 				{1, new EnemyStatus(300, 9999, 30, 3, 200, 0.3f, 0)},
 				{2, new EnemyStatus(350, 9999, 35, 3, 250, 0.5f, 0)}
 			}
@@ -174,15 +174,15 @@ public class GlobalData : MonoBehaviour {
 		
 		{1, new Dictionary<int, EnemyStatus>(){ // SPAM
 				{0, new EnemyStatus(5, 2, 0, 0, 10, 1f, 1)},
-				{1, new EnemyStatus(10, 5, 0, 0, 15, 1.25f, 1)},
-				{2, new EnemyStatus(20, 7, 0, 0, 20, 1.8f, 1)}
+				{1, new EnemyStatus(10, 5, 0, 0, 15, 1.5f, 1)},
+				{2, new EnemyStatus(20, 7, 0, 0, 20, 2f, 1)}
 			}
 		},
 		
 		{2, new Dictionary<int, EnemyStatus>(){ // Trojan
 				{0, new EnemyStatus(10, 6, 0, 0, 20, 0.5f, 2)},
-				{1, new EnemyStatus(20, 15, 0, 0, 30, 0.6f, 2)},
-				{2, new EnemyStatus(30, 21, 0, 0, 45, 0.7f, 2)}
+				{1, new EnemyStatus(20, 15, 0, 0, 30, 0.8f, 2)},
+				{2, new EnemyStatus(30, 21, 0, 0, 45, 1f, 2)}
 			}
 		},
 		
@@ -196,28 +196,28 @@ public class GlobalData : MonoBehaviour {
 		{4, new Dictionary<int, EnemyStatus>(){ // Worms
 				{0, new EnemyStatus(20, 10, 0, 3, 20, 0.8f, 4)},
 				{1, new EnemyStatus(25, 20, 0, 2.5f, 30, 1.2f, 4)},
-				{2, new EnemyStatus(35, 30, 0, 1.5f, 35, 1.5f, 4)}
+				{2, new EnemyStatus(35, 30, 0, 1.5f, 35, 1.6f, 4)}
 			}
 		},
 		
 		{5, new Dictionary<int, EnemyStatus>(){ // Malware
 				{0, new EnemyStatus(40, 30, 10, 2f, 30, 0.5f, 5)},
-				{1, new EnemyStatus(50, 35, 15, 1.5f, 40, 0.6f, 5)},
-				{2, new EnemyStatus(50, 40, 20, 1f, 50, 0.8f, 5)}
+				{1, new EnemyStatus(50, 35, 15, 1.5f, 40, 0.8f, 5)},
+				{2, new EnemyStatus(50, 40, 20, 1f, 50, 1f, 5)}
 			}
 		},
 		
 		{6, new Dictionary<int, EnemyStatus>(){ // Virus
 				{0, new EnemyStatus(20, 10, 5, 1, 15, 1f, 6)},
-				{1, new EnemyStatus(25, 15, 10, 0.8f, 20, 1.25f, 6)},
-				{2, new EnemyStatus(30, 20, 15, 0.7f, 30, 1.5f, 6)}
+				{1, new EnemyStatus(25, 15, 10, 0.8f, 20, 1.5f, 6)},
+				{2, new EnemyStatus(30, 20, 15, 0.7f, 30, 2f, 6)}
 			}
 		},
 		
 		{7, new Dictionary<int, EnemyStatus>(){ // Ads
 				{0, new EnemyStatus(30, 5, 0, 0, 30, 1f, 7)},
-				{1, new EnemyStatus(40, 10, 0, 0, 35, 1.15f, 7)},
-				{2, new EnemyStatus(50, 20, 0, 0, 40, 1.42f, 7)}
+				{1, new EnemyStatus(40, 10, 0, 0, 35, 1.5f, 7)},
+				{2, new EnemyStatus(50, 20, 0, 0, 40, 2f, 7)}
 			}
 		}
 	};

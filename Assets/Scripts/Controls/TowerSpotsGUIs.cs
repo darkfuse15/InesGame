@@ -23,6 +23,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 		//	                                                                   GlobalData.tower_spot_refs[spotid].transform.position);
 			//this.GetComponent<RectTransform>().position= new Vector3 (TowerSpotPosition.x,TowerSpotPosition.y,0);
 		//}
+
 	}
 
 	private void SetTowerRUDBtns(int active_id){
@@ -74,6 +75,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 					int tower_type = towers_by_spots[spotid].GetComponent<TowerControl>().status.type;
 					int tower_lvl = towers_by_spots[spotid].GetComponent<TowerControl>().status.upgrade_level;
 					int repair_cost = GlobalData.TOWER_Repair_COSTS[tower_type][tower_lvl];
+					GameObject.FindGameObjectWithTag("TextRepair").GetComponent<Text>().text = string.Format ("Custo: - {0}",GlobalData.TOWER_Repair_COSTS); 
 					/*pnl_info.transform.GetChild(1).GetComponent<Text>().text = "Reparação";  
 					pnl_info.transform.GetChild(2).GetComponent<Text>().text = GlobalData.Languages[15] + repair_cost;
 					pnl_info.gameObject.SetActive(true);
@@ -90,6 +92,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 					int tower_type = towers_by_spots[spotid].GetComponent<TowerControl>().status.type;
 					int tower_lvl = towers_by_spots[spotid].GetComponent<TowerControl>().status.upgrade_level;
 					int repair_cost = GlobalData.TOWER_UPGRADE_COSTS[tower_type][tower_lvl];
+					GameObject.FindGameObjectWithTag("TextUpgrade").GetComponent<Text>().text = string.Format ("Custo: - {0} \n Dano:{1}",GlobalData.TOWER_UPGRADE_COSTS);
 					/*pnl_info.transform.GetChild(1).GetComponent<Text>().text = "Upgrade";  
 					pnl_info.transform.GetChild(2).GetComponent<Text>().text = GlobalData.Languages[15] + repair_cost;
 					pnl_info.gameObject.SetActive(true);
@@ -103,6 +106,7 @@ public class TowerSpotsGUIs : MonoBehaviour {
 		{
 			if(towers_by_spots.ContainsKey(spotid)){
 				if(towers_by_spots[spotid]!=null){
+					GameObject.FindGameObjectWithTag("TextSell").GetComponent<Text>().text = string.Format ("Custo: - {0}",GlobalData.TOWER_BUILD_COSTS); 
 					/*pnl_info.transform.GetChild(1).GetComponent<Text>().text = "Remover Torre";  
 					pnl_info.transform.GetChild(2).GetComponent<Text>().text = "";
 					pnl_info.gameObject.SetActive(true);
@@ -312,4 +316,5 @@ public class TowerSpotsGUIs : MonoBehaviour {
 			Click_Outside();
 		}
 	}
+
 }
