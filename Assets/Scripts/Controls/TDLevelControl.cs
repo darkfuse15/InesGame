@@ -120,7 +120,7 @@ public class TDLevelControl : MonoBehaviour {
 
 	void UpdateScore(){
 		int sc = PlayerData.current_score + PlayerData.score_speed;
-			GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("Score: {0}", sc);
+			GameObject.Find("InGame").transform.Find("TD").transform.Find("LevelScore").gameObject.GetComponent<Text>().text= string.Format("Pontuação: {0}", sc);
 	}
 
 
@@ -501,17 +501,15 @@ public class TDLevelControl : MonoBehaviour {
 	}
 
 
-
-
 	void UnlockLevels(){
-		if(GlobalData.current_level==10 && GlobalData.current_difficulty<2){
-			if(GlobalData.current_difficulty+1< GlobalData.DifficultiesUnlocked.Count){
-				GlobalData.DifficultiesUnlocked[GlobalData.current_difficulty+1] = true;
-				GlobalData.LevelsUnlocked[GlobalData.current_difficulty][0] = true;
+		if (GlobalData.current_level == 10 && GlobalData.current_difficulty < 2) {
+			if (GlobalData.current_difficulty + 1 < GlobalData.DifficultiesUnlocked.Count) {
+				GlobalData.DifficultiesUnlocked [GlobalData.current_difficulty + 1] = true;
+				GlobalData.LevelsUnlocked [GlobalData.current_difficulty] [0] = true;
 			}
-		}else if(GlobalData.current_level<10){
+		} else if (GlobalData.current_level < 10) {
 			Debug.Log ("unlocking level " + GlobalData.current_level);
-			GlobalData.LevelsUnlocked[GlobalData.current_difficulty][GlobalData.current_level] = true;
+			GlobalData.LevelsUnlocked [GlobalData.current_difficulty] [GlobalData.current_level] = true;
 		}
 	}
 
