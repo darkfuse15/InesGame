@@ -10,10 +10,7 @@ public class TowerSpotControl : MonoBehaviour {
 		TowerInfo = TowerSpotsGUIs.transform.Find("pnl_info").gameObject;
 		CheckFirstTower=TowerButtons.transform.Find("btn_Tower1").gameObject;
 		CheckUpgdTower=TowerButtons.transform.Find("btn_Upgrade").gameObject;
-	}
-	
-	void Update () {
-	
+
 	}
 	
 	void OnMouseUp () {
