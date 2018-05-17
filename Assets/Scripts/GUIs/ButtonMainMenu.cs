@@ -142,7 +142,7 @@ public class ButtonMainMenu : MonoBehaviour {
 		//APIs.GetComponent<APIManager>().RetrieveTopTenScores();
 		#endif
 		#if !UNITY_EDITOR
-		GameObject.Find("MainMenu").transform.FindChild("LeaderBoardMenu").gameObject.GetComponent<LeaderBoard>().ShowLeaderBoard();
+		GameObject.Find("MainMenu").transform.Find("LeaderBoardMenu").gameObject.GetComponent<LeaderBoard>().ShowLeaderBoard();
 		//APIs.GetComponent<APIManager>().RetrieveTopTenScores();
 		#endif
 
