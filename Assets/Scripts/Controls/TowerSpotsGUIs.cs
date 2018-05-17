@@ -233,26 +233,22 @@ public class TowerSpotsGUIs : MonoBehaviour {
 					Debug.Log ("upgd lev "+tcontrol.status.upgrade_level);
 					if(tcontrol.status.upgrade_level==3)
 					{
-						GameObject.FindGameObjectWithTag("range").gameObject.transform.localScale = new Vector3 (12f,12f,12f);
-						GameObject.FindGameObjectWithTag("Tower").GetComponent<toweraim>().range = 9f;
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][2];
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][1];
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][0];
-					}else{
-						return;
+					
+						
 					}
 					if(tcontrol.status.upgrade_level==2)
 					{
-						GameObject.FindGameObjectWithTag("range").gameObject.transform.localScale = new Vector3 (9f,9f,9f);
-						GameObject.FindGameObjectWithTag("Tower").GetComponent<toweraim>().range = 6f;
+						
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][1];
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][0];
 					}
 
 					else if (tcontrol.status.upgrade_level==1)
 					{ 
-						GameObject.FindGameObjectWithTag("range").gameObject.transform.localScale = new Vector3 (6f,6f,6f);
-						GameObject.FindGameObjectWithTag("Tower").GetComponent<toweraim>().range = 3f;
+						
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][0];
 					
 					}
