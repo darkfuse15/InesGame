@@ -17,7 +17,7 @@ public class WinPauseLoseGame : MonoBehaviour {
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
 			
 		if (GlobalData.current_level == 10 && GlobalData.current_difficulty == 2) {
-			
+			Disable_All_InGame_GUIs ();
 		} else {
 			Destroy_InGameObjects ();
 			Disable_All_InGame_GUIs ();
