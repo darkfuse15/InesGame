@@ -9,10 +9,7 @@ public class toweraim : MonoBehaviour {
 	//
 	//protected float speed = 5f;
 
-  //[SerializeField]
-  //protected Transform rotTower;
-	[SerializeField]
-	protected float range = 1.5f;
+	public float range = 1.5f;
 
 
 	void Start(){
