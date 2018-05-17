@@ -83,8 +83,11 @@ public class WinPauseLoseGame : MonoBehaviour {
 
 				//Win();
 				if(GlobalData.current_level == 10 && GlobalData.current_difficulty == 2){
-					
+					PlayerData.current_score = 0;
+					PlayerData.score_speed = 0;
 				} else{
+					PlayerData.current_score = 0;
+					PlayerData.score_speed = 0;
 					MainMenu.transform.Find("LevelsMenu").GetComponent<LevelsMenu>().StartLevel(GlobalData.current_level+1);
 				}
 				//Todo if is last game.....
