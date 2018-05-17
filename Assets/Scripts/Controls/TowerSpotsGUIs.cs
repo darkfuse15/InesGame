@@ -247,16 +247,14 @@ public class TowerSpotsGUIs : MonoBehaviour {
 						GameObject.FindGameObjectWithTag("Tower").GetComponent<toweraim>().range = 6f;
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][1];
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][0];
-					}else{
-						return;
 					}
-					if (tcontrol.status.upgrade_level==1)
+
+					else if (tcontrol.status.upgrade_level==1)
 					{ 
 						GameObject.FindGameObjectWithTag("range").gameObject.transform.localScale = new Vector3 (6f,6f,6f);
 						GameObject.FindGameObjectWithTag("Tower").GetComponent<toweraim>().range = 3f;
 						last_towercost+=GlobalData.TOWER_UPGRADE_COSTS[tcontrol.status.type][0];
-					} else{
-						return;
+					
 					}
 					last_towercost=(int)(last_towercost*0.5f);
 					int curruserenergy=PlayerData.current_energy;
