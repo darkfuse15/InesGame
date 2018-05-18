@@ -24,7 +24,7 @@ public class DeltaDNAManager : MonoBehaviour {
 
 
 	public void DeltaDNA_PostEvent(string dnaevent, int value){
-		if(!deltadnainit)
+		if(!deltadnainit)qqqqqaaaaaa
 			Deltadna_Initialization();
 		EventBuilder eventParams = new EventBuilder()
 			.AddParam(dnaevent, value);
