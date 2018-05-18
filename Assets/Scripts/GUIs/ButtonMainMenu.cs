@@ -329,5 +329,10 @@ public class ButtonMainMenu : MonoBehaviour {
 	}));
 	}
 
+	public void LosesCount (){
+		
+		APIs.GetComponent<DeltaDNAManager>().DeltaDNA_PostEvent("loses_level",true);
+	}
+
 	
 }

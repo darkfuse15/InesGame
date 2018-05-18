@@ -7,6 +7,8 @@ public class WinPauseLoseGame : MonoBehaviour {
 	public GameObject MainMenu;
 	int prev_pausestate;
 
+	GameObject APIs;
+
 	Sprite NormalSpeed,FastSpeed;
 	public void Start(){
 		NormalSpeed= (Sprite) Resources.Load <Sprite> ("InGameGUI/play_button");
@@ -31,7 +33,7 @@ public class WinPauseLoseGame : MonoBehaviour {
 	
 	public void RestartGame(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[0], false, true, true);
-		
+		APIs.GetComponent<DeltaDNAManager>().DeltaDNA_PostEvent("lose_level",true);
 		Destroy_InGameObjects();
 		Disable_All_InGame_GUIs();
 		Time.timeScale = 1;

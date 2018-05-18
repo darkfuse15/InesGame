@@ -5,10 +5,19 @@ using System.Collections;
 public class LevelsMenu : MonoBehaviour {
  
 
-	public GameObject Levels;
+	public GameObject Levels; 
+	GameObject APIs;
+
+	private float timer;
+	protected float timerCount;
+
+	void Start(){
+		timer = Time.time;
+		timerCount = 0;
+	}
 
 	public void StartLevel(int level_n){
-
+		
 
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[1], false, true, true);
 		
@@ -60,6 +69,9 @@ public class LevelsMenu : MonoBehaviour {
 
 	public void PlayLevelSFX(){
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[1], false, true, true);
+		timerCount = timer - Time.deltaTime;
+		print(timerCount);
+		APIs.GetComponent<DeltaDNAManager>().DeltaDNA_PostEvent("time_spent",true);
 		
 	}
 	public void BackToPlayMenu(){
@@ -84,5 +96,6 @@ public class LevelsMenu : MonoBehaviour {
 				btn_lvl.GetChild(1).gameObject.SetActive(!GlobalData.LevelsUnlocked[difficulty][i]);
 		}
 	}
+
 	//Joao2309
 }

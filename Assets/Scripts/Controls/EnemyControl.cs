@@ -10,6 +10,9 @@ public class EnemyControl : MonoBehaviour {
 	Vector3 nextWorldPos;
 	int nsteps=0;//safety measure;
 
+	[SerializeField]
+	protected float startTime;
+
 	float initialmovementspeed;
 	GameObject UI_Tutorial;
 	Animator anim;
@@ -68,6 +71,7 @@ public class EnemyControl : MonoBehaviour {
 	}
 
 	void Start () {
+		startTime = Time.deltaTime;
 		UI_Tutorial=GameObject.Find("Canvas").transform.Find("InGame").transform.Find("Tutorial").gameObject;
 
 		Debug.Log (this.status.type);
@@ -245,6 +249,7 @@ public class EnemyControl : MonoBehaviour {
 		this.GetComponent<Rigidbody2D>().velocity=v_before_stop;
 		this.status.movement_speed=initialmovementspeed;
 		SoundControl.PlaySFX(GlobalData.SFX_Paths[status.type == 0 ? 3 : 5 ], false, true, true);
+		TimerCount();
 		//TODO stop behaviour cycle too
 	}
 
@@ -446,5 +451,11 @@ public class EnemyControl : MonoBehaviour {
 		EnemyBar.GetComponent<ObjectEnergyBar>().curr_health=status.health;
 		EnemyBar.GetComponent<ObjectEnergyBar>().update_energy=true;
 		//JoaoBarFollow
+	}
+	void TimerCount(){
+		float t = Time.deltaTime -Time.deltaTime;
+		string minute= ((int) t /60).ToString();
+		string seconds = (t%60).ToString("F1");
+		print (minute + ":"+seconds);
 	}
 }

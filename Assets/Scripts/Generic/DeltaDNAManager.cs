@@ -4,6 +4,7 @@ using DeltaDNA;
 
 public class DeltaDNAManager : MonoBehaviour {
 
+
 	//DeveloperKey
 	string DeltaDNAkey="40228554261038763674597410514435";
 	//LiveKey

@@ -10,7 +10,9 @@ public class TDLevelControl : MonoBehaviour {
 	public GameObject enemies_go;
 	public GameObject tile;
 	public GameObject test_enemy;
-	
+
+	[SerializeField]
+	protected int dna__loses_count = 0 ;
 
 	private List<Vector2> enemy_spawn_points = new List<Vector2>();
 	private GameObject boss;
@@ -456,6 +458,7 @@ public class TDLevelControl : MonoBehaviour {
 	}
 	void Lose(){
 		int fscore = PlayerData.current_score + (Mathf.CeilToInt(5*(PlayerData.current_energy))) + PlayerData.score_speed;
+		dna__loses_count += 1;
 
 		PlayerData.level_state = -1;
 		StopAllEnemies();
